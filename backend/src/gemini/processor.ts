@@ -1,6 +1,6 @@
 // Main Gemini processor - orchestrates PDF parsing and AI analysis
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import { extractPagesAsImages, PDFPage, imageToBase64 } from './pdf-parser'
+import { loadPDF, PDFInfo, pdfToBase64 } from './pdf-parser'
 import { buildStepAnalysisPrompt } from './prompt-builder'
 import { generateSceneFromAnalysis } from './scene-generator'
 import { 
@@ -12,8 +12,8 @@ import {
 
 // Initialize Gemini API
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || ''
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash'
-const GEMINI_DELAY_MS = parseInt(process.env.GEMINI_DELAY_MS || '500', 10)
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash-latest'
+const GEMINI_DELAY_MS = parseInt(process.env.GEMINI_DELAY_MS || '1000', 10)
 
 if (!GEMINI_API_KEY) {
   console.warn('⚠️  GEMINI_API_KEY not set in environment variables!')
@@ -31,29 +31,31 @@ export async function processPDF(
   console.log('🚀 Starting PDF processing...')
   console.log(`📁 PDF Path: ${pdfPath}`)
   
-  // Step 1: Extract pages as images
-  const pages = await extractPagesAsImages(pdfPath)
-  console.log(`✅ Extracted ${pages.length} pages`)
+  // Step 1: Load PDF
+  const pdfInfo = await loadPDF(pdfPath)
+  console.log(`✅ Loaded PDF with ${pdfInfo.totalPages} pages`)
   
   // Step 2: Process each page with Gemini
   const steps: AssemblyStep[] = []
   let stepCounter = 1
   
-  for (const page of pages) {
+  // Skip first few pages (usually parts list/cover)
+  const startPage = Math.min(2, pdfInfo.totalPages)
+  
+  for (let pageNum = startPage; pageNum <= pdfInfo.totalPages; pageNum++) {
     console.log(`\n${'='.repeat(60)}`)
-    console.log(`🔍 Processing page ${page.pageNumber}/${pages.length}`)
-    console.log(`📊 Image hash: ${page.imageHash}`)
+    console.log(`🔍 Processing page ${pageNum}/${pdfInfo.totalPages}`)
     
     try {
       // Analyze page with Gemini
-      const analysis = await analyzeStepWithGemini(
-        page,
-        pages.length,
+      const analysis = await analyzePageWithGemini(
+        pdfInfo,
+        pageNum,
         metadata
       )
       
       if (!analysis) {
-        console.log(`⏭️  Skipping page ${page.pageNumber} (no assembly step found)`)
+        console.log(`⏭️  Skipping page ${pageNum} (no assembly step found)`)
         continue
       }
       
@@ -68,13 +70,13 @@ export async function processPDF(
       stepCounter++
       
       // Rate limiting
-      if (page.pageNumber < pages.length) {
+      if (pageNum < pdfInfo.totalPages) {
         console.log(`⏳ Waiting ${GEMINI_DELAY_MS}ms before next request...`)
         await delay(GEMINI_DELAY_MS)
       }
       
     } catch (error) {
-      console.error(`❌ Error processing page ${page.pageNumber}:`, error)
+      console.error(`❌ Error processing page ${pageNum}:`, error)
       // Continue with next page
     }
   }
@@ -84,38 +86,39 @@ export async function processPDF(
   console.log(`📦 Total steps extracted: ${steps.length}`)
   
   return {
-    totalPages: pages.length,
+    totalPages: pdfInfo.totalPages,
     steps,
     metadata
   }
 }
 
 /**
- * Analyze a single page with Gemini vision API
+ * Analyze a single page with Gemini PDF support
  */
-async function analyzeStepWithGemini(
-  page: PDFPage,
-  totalPages: number,
+async function analyzePageWithGemini(
+  pdfInfo: PDFInfo,
+  pageNumber: number,
   metadata?: ProductMetadata
 ): Promise<GeminiStepAnalysis | null> {
   const model = genAI.getGenerativeModel({ model: GEMINI_MODEL })
   
-  // Build prompt
-  const prompt = buildStepAnalysisPrompt(page.pageNumber, totalPages, metadata)
+  // Build prompt with page number specified
+  const prompt = buildStepAnalysisPrompt(pageNumber, pdfInfo.totalPages, metadata) + 
+    `\n\nAnalyze ONLY page ${pageNumber} of the PDF. Focus on the assembly step shown on this specific page.`
   
-  // Convert image to base64
-  const imageBase64 = imageToBase64(page.imageBuffer)
+  // Convert PDF to base64
+  const pdfBase64 = pdfToBase64(pdfInfo.pdfBuffer)
   
-  console.log(`📤 Sending to Gemini... (prompt length: ${prompt.length} chars)`)
+  console.log(`📤 Sending page ${pageNumber} to Gemini... (prompt length: ${prompt.length} chars)`)
   
   try {
-    // Call Gemini with image and prompt
+    // Call Gemini with PDF and prompt
     const result = await model.generateContent([
       prompt,
       {
         inlineData: {
-          data: imageBase64,
-          mimeType: 'image/png'
+          data: pdfBase64,
+          mimeType: 'application/pdf'
         }
       }
     ])
@@ -151,7 +154,7 @@ async function analyzeStepWithGemini(
       console.log(`⏳ Rate limited, waiting 5 seconds...`)
       await delay(5000)
       // Retry once
-      return analyzeStepWithGemini(page, totalPages, metadata)
+      return analyzePageWithGemini(pdfInfo, pageNumber, metadata)
     }
     
     throw error
@@ -211,14 +214,13 @@ export async function processSinglePage(
   pageNumber: number,
   metadata?: ProductMetadata
 ): Promise<AssemblyStep | null> {
-  const pages = await extractPagesAsImages(pdfPath)
-  const page = pages.find(p => p.pageNumber === pageNumber)
+  const pdfInfo = await loadPDF(pdfPath)
   
-  if (!page) {
-    throw new Error(`Page ${pageNumber} not found`)
+  if (pageNumber < 1 || pageNumber > pdfInfo.totalPages) {
+    throw new Error(`Page ${pageNumber} out of range (1-${pdfInfo.totalPages})`)
   }
   
-  const analysis = await analyzeStepWithGemini(page, pages.length, metadata)
+  const analysis = await analyzePageWithGemini(pdfInfo, pageNumber, metadata)
   
   if (!analysis) {
     return null
