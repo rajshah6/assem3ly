@@ -1,11 +1,13 @@
-// Scene generator - converts Gemini analysis to 3D scene JSON
+// Scene generator - converts Gemini analysis to 3D scene JSON with geometric primitives
 import { 
   AssemblyStep, 
   Part, 
   AssemblyAction, 
   Vector3, 
   Dimensions,
-  GeminiStepAnalysis 
+  GeminiStepAnalysis,
+  Geometry,
+  GeometryType
 } from './types'
 
 /**
@@ -32,14 +34,14 @@ export function generateSceneFromAnalysis(
 }
 
 /**
- * Converts Gemini's part descriptions to 3D part objects
+ * Converts Gemini's part descriptions to 3D part objects with geometric primitives
  */
 function generatePartsArray(analysis: GeminiStepAnalysis): Part[] {
   return analysis.partsUsed.map((part, index) => {
     const partType = part.type.toLowerCase()
     const dimensions = estimateDimensions(partType, part.estimatedDimensions)
     const color = getPartColor(part.material || 'metal', partType)
-    const model = getPartModel(partType)
+    const geometry = getPartGeometry(partType, dimensions)
     
     // Position parts in a grid for now
     const gridX = (index % 3) * 0.15
@@ -56,7 +58,7 @@ function generatePartsArray(analysis: GeminiStepAnalysis): Part[] {
       position: { x: gridX, y: 0, z: gridZ },
       rotation: { x: 0, y: 0, z: 0 },
       scale: { x: 1, y: 1, z: 1 },
-      model
+      geometry
     }
   })
 }
@@ -145,25 +147,118 @@ function getPartColor(material: string, type: string): string {
 }
 
 /**
- * Maps part types to 3D model paths
+ * Maps part types to React Three Fiber geometric primitives
  */
-function getPartModel(type: string): string {
-  const modelMap: Record<string, string> = {
-    screw: '/models/screw.glb',
-    screw_flathead: '/models/screw.glb',
-    screw_phillips: '/models/screw_phillips.glb',
-    washer: '/models/washer.glb',
-    bracket: '/models/bracket.glb',
-    bracket_l: '/models/bracket_L.glb',
-    dowel: '/models/dowel.glb',
-    dowel_wood: '/models/dowel_wood.glb',
-    cam_lock: '/models/cam_lock.glb',
-    panel: '/models/panel.glb',
-    board: '/models/board.glb',
-    shelf: '/models/shelf.glb'
+function getPartGeometry(type: string, dimensions: Dimensions): Geometry {
+  const typeNormalized = type.toLowerCase().replace(/[_-]/g, '')
+  
+  // Screws - Cylinder
+  if (typeNormalized.includes('screw') || typeNormalized.includes('bolt')) {
+    const radius = dimensions.radius || 0.004
+    const height = dimensions.length || dimensions.height || 0.04
+    return {
+      type: 'cylinder',
+      args: [radius, radius, height, 16]  // [radiusTop, radiusBottom, height, segments]
+    }
   }
   
-  return modelMap[type] || '/models/generic_part.glb'
+  // Washers - Torus (flat ring)
+  if (typeNormalized.includes('washer') || typeNormalized.includes('ring')) {
+    const radius = dimensions.radius || 0.01
+    const tube = dimensions.thickness || 0.002
+    return {
+      type: 'torus',
+      args: [radius, tube, 16, 32]  // [radius, tube, radialSegments, tubularSegments]
+    }
+  }
+  
+  // Dowels - Cylinder
+  if (typeNormalized.includes('dowel') || typeNormalized.includes('pin')) {
+    const radius = dimensions.radius || 0.006
+    const height = dimensions.length || dimensions.height || 0.08
+    return {
+      type: 'cylinder',
+      args: [radius, radius, height, 16]
+    }
+  }
+  
+  // Legs - Cylinder or Cone
+  if (typeNormalized.includes('leg')) {
+    const radius = dimensions.radius || 0.02
+    const height = dimensions.height || dimensions.length || 0.7
+    return {
+      type: 'cylinder',
+      args: [radius, radius, height, 16]
+    }
+  }
+  
+  // Brackets - Box (L-shaped approximation)
+  if (typeNormalized.includes('bracket')) {
+    const width = dimensions.width || 0.12
+    const height = dimensions.height || 0.05
+    const depth = dimensions.depth || 0.02
+    return {
+      type: 'box',
+      args: [width, height, depth]  // [width, height, depth]
+    }
+  }
+  
+  // Panels, boards, shelves, tabletops - Box (thin rectangles)
+  if (typeNormalized.includes('panel') || 
+      typeNormalized.includes('board') || 
+      typeNormalized.includes('shelf') ||
+      typeNormalized.includes('top') ||
+      typeNormalized.includes('table')) {
+    const width = dimensions.width || 0.5
+    const height = dimensions.height || dimensions.thickness || 0.02
+    const depth = dimensions.depth || 0.3
+    return {
+      type: 'box',
+      args: [width, height, depth]
+    }
+  }
+  
+  // Blocks - Box
+  if (typeNormalized.includes('block') || typeNormalized.includes('cube')) {
+    const width = dimensions.width || 0.05
+    const height = dimensions.height || 0.05
+    const depth = dimensions.depth || 0.05
+    return {
+      type: 'box',
+      args: [width, height, depth]
+    }
+  }
+  
+  // Knobs, balls - Sphere
+  if (typeNormalized.includes('knob') || 
+      typeNormalized.includes('ball') ||
+      typeNormalized.includes('sphere')) {
+    const radius = dimensions.radius || 0.015
+    return {
+      type: 'sphere',
+      args: [radius, 32, 32]  // [radius, widthSegments, heightSegments]
+    }
+  }
+  
+  // Cam locks - Cylinder (short and wide)
+  if (typeNormalized.includes('cam') || typeNormalized.includes('lock')) {
+    const radius = dimensions.radius || 0.015
+    const thickness = dimensions.thickness || 0.01
+    return {
+      type: 'cylinder',
+      args: [radius, radius, thickness, 16]
+    }
+  }
+  
+  // Default: Box with estimated dimensions
+  const width = dimensions.width || dimensions.length || 0.05
+  const height = dimensions.height || dimensions.thickness || 0.05
+  const depth = dimensions.depth || 0.05
+  
+  return {
+    type: 'box',
+    args: [width, height, depth]
+  }
 }
 
 /**

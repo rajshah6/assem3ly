@@ -13,6 +13,31 @@ export interface Dimensions {
   length?: number
   radius?: number
   thickness?: number
+  radiusTop?: number
+  radiusBottom?: number
+  innerRadius?: number
+  outerRadius?: number
+  tube?: number
+}
+
+// Geometry types for React Three Fiber
+export type GeometryType = 
+  | 'box'           // Rectangular box
+  | 'cylinder'      // Cylindrical shape (screws, dowels, legs)
+  | 'sphere'        // Spherical shape (knobs, balls)
+  | 'torus'         // Ring/washer shape
+  | 'cone'          // Conical shape
+  | 'capsule'       // Rounded cylinder
+  | 'plane'         // Flat rectangular plane
+
+export interface Geometry {
+  type: GeometryType
+  // For box: width, height, depth
+  // For cylinder: radius, height
+  // For sphere: radius
+  // For torus: radius (outer), tube (thickness)
+  // For cone: radius, height
+  args: number[]  // Arguments array for React Three Fiber geometry
 }
 
 export interface Part {
@@ -26,7 +51,7 @@ export interface Part {
   position: Vector3
   rotation: Vector3
   scale: Vector3
-  model: string
+  geometry: Geometry  // Describes the 3D shape to generate
 }
 
 export interface AssemblyAction {
