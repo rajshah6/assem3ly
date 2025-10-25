@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: "www.ikea.com",
         pathname: "/us/en/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
+      },
     ],
   },
 };
