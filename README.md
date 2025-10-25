@@ -2,7 +2,7 @@
 
 **AI-powered assembly manual finder with 3D visualization**
 
-Built for the Bright Data Hackathon 🏆
+Built for the Cal Hacks 🏆
 
 ## 🎯 What It Does
 
