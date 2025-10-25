@@ -12,7 +12,7 @@ import {
 
 // Initialize Gemini API
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || ''
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash-latest'
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash-exp'
 const GEMINI_DELAY_MS = parseInt(process.env.GEMINI_DELAY_MS || '1000', 10)
 
 if (!GEMINI_API_KEY) {
