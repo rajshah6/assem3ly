@@ -1,0 +1,179 @@
+---
+description: Data flow and integration between team members
+---
+
+# Integration Points & Data Flow
+
+## Overview
+This guide shows how the four team members' code connects together.
+
+## Data Flow Pipeline
+
+```
+Person 2 (Frontend UI)
+    ↓ User enters "Billy Bookcase"
+    ↓ POST /api/scrape-product
+    ↓
+Person 1 (Bright Data)
+    ↓ Scrapes IKEA, downloads PDF
+    ↓ Returns ScrapedProduct
+    ↓
+Person 3 (Gemini AI)
+    ↓ Processes PDF pages
+    ↓ Returns ExtractedStep[]
+    ↓
+Person 4 (3D Rendering)
+    ↓ Renders sceneJson in Three.js
+    ↓
+User sees interactive 3D assembly guide
+```
+
+## Person 2 → Person 1
+
+### Frontend calls Backend Scraper
+
+**File**: `frontend/components/search/SmartSearch.tsx`
+
+```typescript
+const response = await fetch(`${API_URL}/api/scrape-product`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ query: 'Billy Bookcase' })
+})
+
+const scrapedData: ScrapedProduct = await response.json()
+```
+
+## Person 1 → Person 3
+
+### Scraper passes data to AI Processor
+
+**File**: `backend/src/api/routes.ts`
+
+```typescript
+// Step 1: Person 1's scraping logic
+const scrapedData = await scrapeProduct(query)
+
+// Step 2: Person 3's AI processing
+const extractionResult = await extractSteps({
+  pdfPath: scrapedData.pdfPath,
+  manualTitle: scrapedData.productName,
+  metadata: scrapedData.metadata  // CRITICAL: Include all metadata!
+})
+
+// Return combined result
+res.json({
+  product: scrapedData,
+  steps: extractionResult.steps
+})
+```
+
+## Person 3 → Person 4
+
+### AI passes structured data to 3D Viewer
+
+**File**: `frontend/app/assembly/[id]/page.tsx`
+
+```typescript
+// Fetch processed data (from Person 3)
+const { product, steps } = await fetch('/api/assembly/id').then(r => r.json())
+
+// Pass to Person 4's viewer
+<AssemblyViewer 
+  steps={steps}
+  currentStep={currentStep}
+  onStepChange={setCurrentStep}
+/>
+```
+
+**File**: `frontend/components/viewer/AssemblyViewer.tsx` (Person 4)
+
+```typescript
+export function AssemblyViewer({ steps, currentStep }: Props) {
+  useEffect(() => {
+    // Get scene data from Person 3's AI processing
+    const step = steps[currentStep]
+    const sceneJson = step.sceneJson
+    
+    // Clear previous scene
+    clearScene(scene)
+    
+    // Render new scene from AI-generated data
+    renderSceneFromJson(scene, sceneJson)
+    
+    // Highlight parts used in this step
+    highlightActiveParts(scene, step.parts.map(p => p.name))
+  }, [currentStep, steps])
+}
+```
+
+## Shared TypeScript Interfaces
+
+Create these in both backend and frontend (or in a shared types file):
+
+```typescript
+// Person 1's output
+interface ScrapedProduct {
+  productName: string
+  productId: string
+  pdfUrl: string
+  pdfPath: string
+  metadata: {
+    dimensions: { width: string, height: string, depth: string }
+    weight?: string
+    parts?: string[]
+    images: string[]
+    category: string
+    sourceUrl: string
+    scrapedAt: string
+  }
+}
+
+// Person 3's output
+interface ExtractedStep {
+  stepNumber: number
+  instruction: string
+  parts: Array<{ name: string, quantity: number, partId?: string }>
+  tools: string[]
+  sceneJson: {
+    parts: Array<{
+      type: 'box' | 'cylinder' | 'sphere' | 'plane'
+      position: [number, number, number]
+      rotation: [number, number, number]
+      scale: [number, number, number]
+      color: string
+      name: string
+    }>
+    camera?: {
+      position: [number, number, number]
+      lookAt: [number, number, number]
+    }
+  }
+  imageUrl?: string
+}
+```
+
+## Common Issues & Solutions
+
+### Issue: Frontend can't reach backend
+**Solution**: Check CORS settings in backend
+```typescript
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000'
+}))
+```
+
+### Issue: Metadata not passed correctly
+**Solution**: Always destructure and pass explicitly
+```typescript
+const { pdfPath, productName, metadata } = scrapedData
+await extractSteps({ pdfPath, manualTitle: productName, metadata })
+```
+
+### Issue: Steps not updating in 3D viewer
+**Solution**: Use proper dependency array in useEffect
+```typescript
+useEffect(() => {
+  // ... render logic
+}, [currentStep, steps]) // ← Include both dependencies
+```

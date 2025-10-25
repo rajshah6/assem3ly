@@ -1,0 +1,59 @@
+---
+alwaysApply: true
+---
+
+# assem3ly - Project Overview
+
+## Mission
+A 24-hour hackathon project that scrapes IKEA assembly manuals using Bright Data, processes them with Google Gemini AI, and displays them as interactive 3D guides.
+
+## Tech Stack
+- **Backend**: Node.js, Express, TypeScript
+- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
+- **AI**: Google Gemini API
+- **Web Scraping**: Bright Data (SERP API, Web Unlocker, Web Scraper)
+- **3D**: Three.js
+
+## Team Structure (4 People)
+- **Person 1 (Bright Data)**: `backend/brightdata/` - Web scraping and data extraction
+- **Person 2 (Frontend)**: `frontend/app/`, `frontend/components/` - UI and user experience
+- **Person 3 (AI Processing)**: `backend/src/gemini/` - Gemini API integration and step extraction
+- **Person 4 (3D Rendering)**: `frontend/components/viewer/` - Three.js 3D visualization
+
+## Code Style Guidelines
+
+### General Rules
+- **TypeScript**: Use TypeScript for ALL new code (frontend and backend)
+- **Async/Await**: Always use async/await over raw promises
+- **JSDoc**: Add comments for complex functions
+- **React**: Prefer functional components
+- **Variables**: Use `const` over `let` whenever possible
+
+### Naming Conventions
+- **Components**: PascalCase → `SmartSearch.tsx`
+- **Files**: kebab-case → `scraping-progress.tsx`
+- **Functions**: camelCase → `scrapeProduct()`
+- **Constants**: UPPER_SNAKE_CASE → `BRIGHTDATA_API_KEY`
+- **Interfaces**: PascalCase → `ScrapedProduct` (optional 'I' prefix)
+
+### File Organization
+- Keep files under **300 lines** (split if longer)
+- One component per file
+- Co-locate types with implementation
+- Group related functions in utilities
+
+## Environment Variables
+**NEVER hardcode API keys!** All sensitive data must be in `.env` files:
+- Backend: `backend/.env`
+- Frontend: `frontend/.env.local`
+
+Required variables:
+```bash
+# Backend
+BRIGHTDATA_API_KEY=your_key
+GEMINI_API_KEY=your_key
+PORT=3001
+
+# Frontend
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```

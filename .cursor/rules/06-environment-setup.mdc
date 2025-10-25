@@ -1,0 +1,124 @@
+---
+description: Environment variables, configuration, and setup instructions
+---
+
+# Environment Setup & Configuration
+
+## Environment Variables
+
+### Backend (`.env`)
+Create `backend/.env` with these variables:
+
+```bash
+# Server Configuration
+PORT=3001
+
+# Bright Data (Person 1)
+BRIGHTDATA_API_KEY=your_brightdata_api_key_here
+
+# Google Gemini (Person 3)
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### Frontend (`.env.local`)
+Create `frontend/.env.local`:
+
+```bash
+# Backend API
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+## Getting API Keys
+
+### Bright Data
+1. Sign up at https://brightdata.com
+2. Go to Dashboard → API
+3. Create a new API token
+4. Copy the API key
+5. Choose your zone type:
+   - **SERP API**: For Google search results
+   - **Web Unlocker**: For scraping dynamic sites (IKEA)
+   - **Web Scraper**: For structured data extraction
+
+### Google Gemini
+1. Visit https://ai.google.dev/
+2. Click "Get API Key"
+3. Create a new project (if needed)
+4. Generate API key
+5. Copy the key to your `.env` file
+
+**Note**: Gemini API is free with rate limits (60 requests/minute)
+
+## Running the Project
+
+### Development Mode
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+cp .env.example .env
+# Edit .env with your API keys
+npm install
+npm run dev
+# Should start on http://localhost:3001
+```
+
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+cp .env.example .env.local
+npm install
+npm run dev
+# Should start on http://localhost:3000
+```
+
+Visit http://localhost:3000 🎉
+
+## Security Checklist
+
+- [ ] Never commit `.env` files to git
+- [ ] Add `.env` to `.gitignore`
+- [ ] Use environment variables for all API keys
+- [ ] Enable CORS only for specific origins in production
+- [ ] Validate all user inputs
+- [ ] Rate limit API endpoints
+- [ ] Use HTTPS in production
+
+## Troubleshooting
+
+### "API key not found"
+```bash
+# Check if .env is loaded
+echo $BRIGHTDATA_API_KEY  # Should print your key
+
+# Ensure dotenv is imported at the top of your entry file
+import 'dotenv/config'
+```
+
+### "CORS error" in frontend
+```typescript
+// backend/src/index.ts
+import cors from 'cors'
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true
+}))
+```
+
+### "Module not found" errors
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Three.js import errors
+```typescript
+// Use dynamic imports for Three.js in Next.js
+import dynamic from 'next/dynamic'
+
+const AssemblyViewer = dynamic(
+  () => import('@/components/viewer/AssemblyViewer'),
+  { ssr: false } // Disable SSR for Three.js components
+)
+```

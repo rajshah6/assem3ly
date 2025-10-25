@@ -1,0 +1,138 @@
+---
+globs: backend/src/gemini/**,**/gemini*.ts,**/gemini*.js,backend/src/ai/**
+description: Google Gemini AI integration for assembly manual processing
+---
+
+# Person 3: AI Processing (Gemini) Rules
+
+## File Location
+All AI/Gemini code must be in `backend/src/gemini/`
+
+## 🚨 CRITICAL BUG FIX - PRIORITY #1
+
+### Problem: PDF Pages Processed Identically
+**Issue**: All PDF pages were being processed as the same image, resulting in duplicate steps.
+
+### Solution: Ensure Unique Processing
+```typescript
+// ✅ CORRECT: Log and verify each page is unique
+for (let pageNo = 1; pageNo <= totalPages; pageNo++) {
+  console.log(`📄 Processing page ${pageNo}/${totalPages}`)
+  
+  // Extract image for THIS specific page
+  const pageImage = await extractPageImage(pdfPath, pageNo)
+  console.log(`🖼️  Page ${pageNo} image size:`, pageImage.length, 'bytes')
+  
+  // Verify unique identifier
+  const imageHash = crypto.createHash('md5').update(pageImage).digest('hex')
+  console.log(`🔑 Page ${pageNo} hash:`, imageHash)
+  
+  // Send to Gemini with page number in prompt
+  const result = await processWithGemini(pageImage, pageNo, metadata)
+  
+  console.log(`✅ Page ${pageNo} processed: ${result.instruction}`)
+}
+```
+
+## Core Data Structure
+
+```typescript
+interface ExtractedStep {
+  stepNumber: number
+  instruction: string  // Clear, concise assembly instruction
+  parts: Array<{
+    name: string      // e.g., "Shelf board", "Screw M6x20"
+    quantity: number  // Number needed for this step
+    partId?: string   // Optional: IKEA part number
+  }>
+  tools: string[]     // e.g., ["Phillips screwdriver", "Allen key 4mm"]
+  sceneJson: {
+    parts: Array<{
+      type: string    // "box", "cylinder", etc.
+      position: [number, number, number]
+      rotation: [number, number, number]
+      scale: [number, number, number]
+      color: string   // Hex color
+      name: string    // Part name
+    }>
+    camera?: {
+      position: [number, number, number]
+      lookAt: [number, number, number]
+    }
+  }
+  imageUrl?: string   // Optional: Original page image
+}
+```
+
+## Your Responsibilities
+
+### 1. PDF Processing
+- Load PDF using `pdf-lib` or `pdfjs-dist`
+- Convert each page to image (PNG/JPEG)
+- Extract page count
+- Process pages sequentially (ensure uniqueness!)
+
+### 2. Gemini API Integration
+- Send each page image to Gemini
+- Include metadata from Person 1 in prompts for better context
+- Extract: step number, instruction, parts, tools
+- Generate 3D scene JSON for Person 4
+
+### 3. Enhanced Prompt Structure
+```typescript
+const prompt = `You are analyzing an IKEA assembly manual for: ${manualTitle}
+
+Product Metadata:
+- Dimensions: ${metadata.dimensions.width} × ${metadata.dimensions.height} × ${metadata.dimensions.depth}
+- Category: ${metadata.category}
+- Parts list: ${metadata.parts?.join(', ') || 'Unknown'}
+
+Current Page: ${pageNo}/${totalPages}
+
+Extract the assembly step from this image and return a JSON object with:
+1. stepNumber: The step number shown in the image
+2. instruction: A clear, actionable instruction (1-2 sentences)
+3. parts: Array of parts used (with names and quantities)
+4. tools: Array of tools required
+5. sceneJson: 3D scene description for rendering
+
+Return ONLY valid JSON, no markdown formatting.`
+```
+
+### 4. Rate Limiting
+- Add 500ms delay between Gemini requests
+- Handle API rate limits gracefully
+- Implement retry logic (max 3 attempts)
+
+### 5. Scene JSON Generation
+Generate simple 3D primitives for Person 4:
+- Use box, cylinder, sphere shapes
+- Position parts logically based on assembly
+- Use realistic proportions from product dimensions
+- Include connector parts (screws, dowels) if visible
+
+## Integration with Person 1 (Bright Data)
+```typescript
+// Receive scraped data from Person 1
+const result = await extractSteps({
+  pdfPath: scrapedData.pdfPath,
+  manualTitle: scrapedData.productName,
+  metadata: scrapedData.metadata // Critical: Use metadata for context!
+})
+```
+
+## Integration with Person 4 (3D Rendering)
+Person 4 will receive your `ExtractedStep[]` array and render `step.sceneJson` in Three.js.
+
+## Environment Variables
+```bash
+GEMINI_API_KEY=your_key
+GEMINI_MODEL=gemini-1.5-pro-latest
+GEMINI_DELAY_MS=500
+```
+
+## Performance & Rate Limits
+- **Gemini API**: 60 requests/minute (free tier)
+- Add delays between requests
+- Process PDFs in queue, not concurrently
+- Cache extracted steps to avoid re-processing

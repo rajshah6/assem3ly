@@ -1,0 +1,152 @@
+---
+globs: frontend/components/viewer/**,frontend/lib/three-utils.ts,**/*three*.ts,**/*viewer*.tsx
+description: Three.js 3D rendering and interactive assembly visualization
+---
+
+# Person 4: 3D Rendering (Three.js) Rules
+
+## File Location
+- Main viewer component: `frontend/components/viewer/AssemblyViewer.tsx`
+- Three.js utilities: `frontend/lib/three-utils.ts`
+- Related components: `frontend/components/viewer/`
+
+## Your Responsibilities
+
+### 1. Scene Setup
+- Initialize Three.js scene, camera, renderer in React useEffect
+- Set up lighting (ambient + directional lights)
+- Configure camera (orthographic for isometric IKEA-style view)
+- Add OrbitControls for user interaction
+
+### 2. Rendering Scene from AI Data
+- Receive `ExtractedStep[]` from Person 3
+- Parse `step.sceneJson` and create Three.js objects
+- Render primitives: box, cylinder, sphere, plane
+- Apply positions, rotations, scales, colors
+
+### 3. Camera Configuration
+- Use **OrthographicCamera** for IKEA-style isometric view
+- Default position: (10, 10, 10) looking at origin
+- Enable OrbitControls with damping
+
+### 4. Lighting Setup
+```typescript
+// Ambient light (soft overall illumination)
+const ambient = new THREE.AmbientLight(0xffffff, 0.6)
+
+// Directional lights from multiple angles
+const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.4)
+dirLight1.position.set(5, 10, 5)
+
+const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.3)
+dirLight2.position.set(-5, 8, -5)
+```
+
+### 5. Part Highlighting
+- Add hover effects to parts
+- Use glow material for active parts (opacity: 0.3)
+- Show tooltips with part names on click
+- Highlight parts used in current step
+
+### 6. Scene Rendering from JSON
+```typescript
+interface SceneJson {
+  parts: Array<{
+    type: 'box' | 'cylinder' | 'sphere' | 'plane'
+    position: [number, number, number]
+    rotation: [number, number, number]
+    scale: [number, number, number]
+    color: string
+    name: string
+  }>
+  camera?: {
+    position: [number, number, number]
+    lookAt: [number, number, number]
+  }
+}
+
+// Create geometry based on type
+switch (part.type) {
+  case 'box':
+    geometry = new THREE.BoxGeometry(1, 1, 1)
+    break
+  case 'cylinder':
+    geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32)
+    break
+  // ... etc
+}
+```
+
+### 7. Cleanup (CRITICAL!)
+**ALWAYS dispose Three.js objects to prevent memory leaks:**
+```typescript
+useEffect(() => {
+  // Initialize Three.js
+  const { scene, camera, renderer, controls } = initScene()
+  
+  // Cleanup on unmount
+  return () => {
+    renderer.dispose()
+    controls.dispose()
+    scene.traverse((object) => {
+      if (object instanceof THREE.Mesh) {
+        object.geometry.dispose()
+        if (Array.isArray(object.material)) {
+          object.material.forEach(m => m.dispose())
+        } else {
+          object.material.dispose()
+        }
+      }
+    })
+  }
+}, [])
+```
+
+## Integration with Person 2 (Frontend)
+```typescript
+interface AssemblyViewerProps {
+  steps: ExtractedStep[]  // From Person 3
+  currentStep: number
+  onStepChange?: (step: number) => void
+}
+
+export function AssemblyViewer({ steps, currentStep, onStepChange }: Props) {
+  // Render steps[currentStep].sceneJson
+}
+```
+
+## Performance Optimization
+- Target **60 FPS**
+- Use requestAnimationFrame for smooth rendering
+- Implement Level of Detail (LOD) for complex scenes
+- Only re-render when currentStep changes
+
+## Window Resize Handling
+```typescript
+useEffect(() => {
+  function handleResize() {
+    camera.updateProjectionMatrix()
+    renderer.setSize(container.width, container.height)
+  }
+  
+  window.addEventListener('resize', handleResize)
+  return () => window.removeEventListener('resize', handleResize)
+}, [])
+```
+
+## Controls Configuration
+```typescript
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+controls.dampingFactor = 0.05
+controls.minPolarAngle = Math.PI / 6
+controls.maxPolarAngle = Math.PI / 2
+```
+
+## Memory Leak Prevention Checklist
+- ✅ Dispose renderer in cleanup
+- ✅ Dispose controls in cleanup
+- ✅ Dispose all geometries
+- ✅ Dispose all materials
+- ✅ Remove event listeners
+- ✅ Cancel animation frame if needed

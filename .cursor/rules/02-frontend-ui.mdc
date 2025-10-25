@@ -1,0 +1,129 @@
+---
+globs: frontend/**/*.tsx,frontend/**/*.ts,frontend/app/**,frontend/components/**
+description: Frontend UI components and user experience guidelines
+---
+
+# Person 2: Frontend UI Rules
+
+## Your Responsibilities
+
+### 1. Search Interface (`components/search/`)
+- Build search bar component
+- Show real-time scraping progress
+- Display product results
+- Handle loading/error states
+
+### 2. Assembly Viewer Page (`app/assembly/[id]/`)
+- Create dynamic route for assembly viewing
+- Left sidebar: Step-by-step instructions
+- Right side: 3D viewer (Person 4's component)
+- Step navigation (Previous/Next buttons)
+
+### 3. UI Components (`components/`)
+- **Search Components**:
+  - `SmartSearch.tsx` - Main search input
+  - `SearchResults.tsx` - Results list
+  - `ProductCard.tsx` - Individual product card
+  - `SearchProgress.tsx` - Real-time progress indicator
+
+- **Assembly Components**:
+  - `StepList.tsx` - Step-by-step sidebar
+  - `PartsList.tsx` - Parts needed for current step
+  - `ToolsList.tsx` - Tools required
+  - `StepNavigation.tsx` - Navigation buttons
+
+## Component Structure
+
+### Client vs Server Components
+```typescript
+// Use 'use client' for interactive components
+'use client'
+
+import { useState } from 'react'
+
+export function SmartSearch() {
+  const [query, setQuery] = useState('')
+  // ... component logic
+}
+```
+
+### Required UI States
+Every async operation must handle:
+1. **Loading**: Show spinner/skeleton
+2. **Success**: Display data
+3. **Error**: User-friendly error message
+4. **Empty**: No results state
+
+## API Integration
+
+### API Client
+Create centralized API client in `lib/api-client.ts`:
+```typescript
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+export async function scrapeProduct(query: string) {
+  const response = await fetch(`${API_URL}/api/scrape-product`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query })
+  })
+  
+  if (!response.ok) throw new Error('Scraping failed')
+  return response.json()
+}
+```
+
+### Timeout Handling
+Add 60-second timeout for long operations:
+```typescript
+const controller = new AbortController()
+const timeoutId = setTimeout(() => controller.abort(), 60000)
+
+try {
+  const response = await fetch('/api/scrape', {
+    signal: controller.signal
+  })
+} catch (error) {
+  if (error.name === 'AbortError') {
+    showToast('Request timed out. Please try again.')
+  }
+} finally {
+  clearTimeout(timeoutId)
+}
+```
+
+## Styling with Tailwind CSS
+
+Use Tailwind utility classes:
+```tsx
+<div className="flex h-screen">
+  <div className="w-1/3 p-6 bg-gray-50">
+    {/* Sidebar */}
+  </div>
+  <div className="w-2/3">
+    {/* 3D Viewer */}
+  </div>
+</div>
+```
+
+## Integration with Person 4 (3D Viewer)
+```tsx
+import { AssemblyViewer } from '@/components/viewer/AssemblyViewer'
+
+<AssemblyViewer 
+  steps={extractedSteps}
+  currentStep={currentStep}
+  onStepChange={setCurrentStep}
+/>
+```
+
+## State Management
+- Use React hooks (useState, useEffect)
+- Keep state close to where it's used
+- Lift state only when necessary
+- Use context for truly global state
+
+## Performance
+- Use `next/image` for all images
+- Lazy load heavy components
+- Debounce search inputs (300ms)

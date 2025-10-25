@@ -1,0 +1,92 @@
+---
+globs: backend/brightdata/**,**/scrape*.ts,**/scrape*.js
+description: Bright Data web scraping implementation and API integration
+---
+
+# Person 1: Bright Data Scraping Rules
+
+## File Location
+All Bright Data code must be in `backend/brightdata/`
+
+## Core Data Structure
+Always return scraped data in this format:
+
+```typescript
+interface ScrapedProduct {
+  productName: string
+  productId: string
+  pdfUrl: string
+  pdfPath: string  // Local path after download
+  metadata: {
+    dimensions: { width: string, height: string, depth: string }
+    weight?: string
+    parts?: string[]
+    images: string[]
+    category: string
+    sourceUrl: string
+    scrapedAt: string  // ISO 8601 format
+  }
+}
+```
+
+## Your Responsibilities
+
+### 1. SERP API Integration
+- Search IKEA products using Bright Data SERP API
+- Handle multiple regional sites (ikea.com, ikea.co.uk, ikea.de, etc.)
+- Return top search results with product URLs
+
+### 2. Web Scraper
+- Extract product data from IKEA product pages
+- Get: product name, ID, dimensions, parts list, images
+- Find the PDF download link for assembly manual
+
+### 3. PDF Downloader
+- Download PDFs using Bright Data Web Unlocker
+- Save to `backend/data/pdfs/`
+- Handle anti-bot protection automatically
+
+### 4. Error Handling & Retries
+- Add retry logic (max 3 retries with exponential backoff)
+- Handle rate limiting gracefully
+- Return proper HTTP status codes:
+  - **200**: Success
+  - **404**: Product not found
+  - **429**: Rate limited
+  - **500**: Server error
+
+### 5. Logging
+Use emoji prefixes for clear console output:
+```typescript
+console.log('🔍 Starting scrape for:', productQuery)
+console.log('✅ Successfully scraped:', productName)
+console.error('❌ Scraping failed:', error)
+console.log('📥 Downloading PDF from:', pdfUrl)
+console.log('💾 Saved PDF to:', pdfPath)
+```
+
+## Integration with Person 3 (AI)
+After scraping, pass data to AI processor:
+```typescript
+const scrapedData = await scrapeProduct(query)
+
+// Pass to Person 3
+const extractionResult = await extractSteps({
+  pdfPath: scrapedData.pdfPath,
+  manualTitle: scrapedData.productName,
+  metadata: scrapedData.metadata // Important: Include all metadata!
+})
+```
+
+## Environment Variables
+```bash
+BRIGHTDATA_API_KEY=your_key
+BRIGHTDATA_CUSTOMER_ID=your_customer_id
+BRIGHTDATA_ZONE=your_zone
+```
+
+## Bright Data Best Practices
+- Use **Web Unlocker** for dynamic IKEA pages
+- Use **SERP API** for product search
+- Download PDFs to `backend/data/pdfs/` directory
+- Cache scraped data to avoid redundant calls

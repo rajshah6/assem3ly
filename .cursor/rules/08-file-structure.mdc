@@ -1,0 +1,225 @@
+---
+alwaysApply: true
+---
+
+# assem3ly - File Structure & Organization
+
+## 📁 Complete Directory Structure
+
+```
+assem3ly/
+│
+├── .cursor/
+│   └── rules/                          # Cursor AI rules
+│
+├── backend/                            # Node.js/Express backend
+│   ├── brightdata/                     # 🔵 Person 1: Bright Data scraping
+│   │   ├── scraper.ts                 # Main scraping orchestrator
+│   │   ├── serp-search.ts             # SERP API integration
+│   │   ├── web-scraper.ts             # Product page scraper
+│   │   ├── pdf-downloader.ts          # PDF download with Web Unlocker
+│   │   └── types.ts                   # Scraping interfaces
+│   │
+│   ├── src/
+│   │   ├── gemini/                     # 🟢 Person 3: AI processing
+│   │   │   ├── processor.ts           # Main Gemini orchestrator
+│   │   │   ├── pdf-parser.ts          # PDF to image conversion
+│   │   │   ├── prompt-builder.ts      # Dynamic prompt generation
+│   │   │   ├── scene-generator.ts     # 3D scene JSON generation
+│   │   │   └── types.ts               # AI extraction interfaces
+│   │   │
+│   │   ├── api/                        # API routes
+│   │   │   ├── routes.ts              # Main route definitions
+│   │   │   ├── scrape.route.ts        # POST /api/scrape-product
+│   │   │   └── assembly.route.ts      # GET /api/assembly/:id
+│   │   │
+│   │   ├── middleware/
+│   │   │   ├── error-handler.ts       # Global error handling
+│   │   │   └── cors.ts                # CORS configuration
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── logger.ts              # Emoji-based logging
+│   │   │   └── cache.ts               # Simple caching layer
+│   │   │
+│   │   └── index.ts                    # Server entry point
+│   │
+│   ├── data/
+│   │   ├── pdfs/                       # Downloaded PDF files
+│   │   └── cache/                      # Cached extraction results
+│   │
+│   ├── .env                            # Environment variables (DO NOT COMMIT)
+│   ├── .env.example                    # Example env file
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── frontend/                           # Next.js 15 frontend
+│   ├── app/                            # 🟡 Person 2: Next.js app directory
+│   │   ├── page.tsx                   # Home page (search interface)
+│   │   ├── layout.tsx                 # Root layout
+│   │   ├── globals.css                # Global styles
+│   │   │
+│   │   └── assembly/
+│   │       └── [id]/
+│   │           └── page.tsx           # Assembly viewer page
+│   │
+│   ├── components/
+│   │   ├── search/                     # 🟡 Person 2: Search UI
+│   │   │   ├── SmartSearch.tsx        # Main search component
+│   │   │   ├── SearchResults.tsx      # Results list
+│   │   │   ├── ProductCard.tsx        # Individual product card
+│   │   │   └── SearchProgress.tsx     # Real-time progress indicator
+│   │   │
+│   │   ├── assembly/                   # 🟡 Person 2: Assembly UI
+│   │   │   ├── StepList.tsx           # Step-by-step sidebar
+│   │   │   ├── PartsList.tsx          # Parts needed for current step
+│   │   │   ├── ToolsList.tsx          # Tools required
+│   │   │   └── StepNavigation.tsx     # Previous/Next buttons
+│   │   │
+│   │   └── viewer/                     # 🟣 Person 4: 3D viewer
+│   │       ├── AssemblyViewer.tsx     # Main Three.js viewer component
+│   │       ├── ViewerControls.tsx     # Camera controls UI
+│   │       ├── PartHighlighter.tsx    # Part highlighting system
+│   │       └── SceneLoader.tsx        # Scene JSON loader
+│   │
+│   ├── lib/
+│   │   ├── api-client.ts              # API wrapper for backend calls
+│   │   ├── three-utils.ts             # 🟣 Person 4: Three.js utilities
+│   │   ├── scene-renderer.ts          # 🟣 Person 4: Scene rendering
+│   │   └── utils.ts                   # General utilities
+│   │
+│   ├── .env.local                      # Frontend environment variables (DO NOT COMMIT)
+│   ├── .env.example                    # Example env file
+│   ├── package.json
+│   ├── next.config.ts
+│   ├── tailwind.config.ts
+│   └── tsconfig.json
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🗂️ File Responsibilities by Person
+
+### 🔵 Person 1 (Bright Data Expert)
+**Directory**: `backend/brightdata/`
+
+**Create These Files**:
+- `scraper.ts` - Main scraping orchestrator
+- `serp-search.ts` - Search IKEA products via SERP API
+- `web-scraper.ts` - Extract product data from IKEA pages
+- `pdf-downloader.ts` - Download PDFs using Web Unlocker
+- `types.ts` - Define `ScrapedProduct` interface
+
+---
+
+### 🟡 Person 2 (Frontend Developer)
+**Directory**: `frontend/app/`, `frontend/components/search/`, `frontend/components/assembly/`
+
+**Create These Files**:
+- `app/page.tsx` - Home page with search bar
+- `components/search/SmartSearch.tsx` - Main search component
+- `components/search/SearchProgress.tsx` - Real-time progress
+- `components/assembly/StepList.tsx` - Step-by-step sidebar
+- `components/assembly/PartsList.tsx` - Parts list UI
+- `lib/api-client.ts` - Backend API wrapper
+
+---
+
+### 🟢 Person 3 (AI Engineer)
+**Directory**: `backend/src/gemini/`
+
+**Create These Files**:
+- `processor.ts` - Main Gemini orchestrator
+- `pdf-parser.ts` - Convert PDF pages to images
+- `prompt-builder.ts` - Generate context-aware prompts
+- `scene-generator.ts` - Generate 3D scene JSON
+- `types.ts` - Define `ExtractedStep` interface
+
+---
+
+### 🟣 Person 4 (3D Graphics Developer)
+**Directory**: `frontend/components/viewer/`, `frontend/lib/three-utils.ts`
+
+**Create These Files**:
+- `components/viewer/AssemblyViewer.tsx` - Main Three.js component
+- `components/viewer/PartHighlighter.tsx` - Part interaction
+- `lib/three-utils.ts` - Three.js utility functions
+- `lib/scene-renderer.ts` - Render scene from JSON
+
+---
+
+## 🔄 Data Flow Through Files
+
+```
+1. User searches
+   ↓
+   frontend/components/search/SmartSearch.tsx
+   ↓
+   frontend/lib/api-client.ts
+   ↓ POST /api/scrape-product
+   backend/src/api/routes.ts
+   ↓
+2. Scrape IKEA
+   ↓
+   backend/brightdata/scraper.ts (Person 1)
+   ↓
+3. Process with AI
+   ↓
+   backend/src/gemini/processor.ts (Person 3)
+   ↓
+4. Return to frontend
+   ↓
+   frontend/app/assembly/[id]/page.tsx
+   ↓
+5. Render 3D
+   ↓
+   frontend/components/viewer/AssemblyViewer.tsx (Person 4)
+```
+
+---
+
+## 🚨 Important Files to Never Commit
+
+Already in `.gitignore`:
+```
+.env
+.env.local
+backend/data/pdfs/*.pdf
+node_modules/
+backend/dist/
+frontend/.next/
+```
+
+---
+
+## 📦 Where Each Person Installs Dependencies
+
+### Person 1 (Backend - Bright Data)
+```bash
+cd backend
+npm install axios  # HTTP requests to Bright Data APIs
+```
+
+### Person 2 (Frontend - UI)
+Already installed with Next.js CLI!
+
+### Person 3 (Backend - AI)
+```bash
+cd backend
+npm install @google/generative-ai  # Gemini API
+npm install pdf-lib pdfjs-dist     # PDF processing
+npm install sharp                  # Image conversion
+```
+
+### Person 4 (Frontend - 3D)
+```bash
+cd frontend
+npm install three          # Three.js
+npm install @types/three   # TypeScript definitions
+```
+
+---
+
+This structure keeps each person's work isolated while ensuring seamless integration!

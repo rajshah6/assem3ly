@@ -1,0 +1,95 @@
+---
+alwaysApply: true
+---
+
+# assem3ly - Project Mission & Vision
+
+## 🎯 The Problem We're Solving
+
+**IKEA assembly manuals are scattered across 30+ regional websites with no central database.**
+
+### Pain Points:
+1. **Lost your manual?** Good luck finding it online
+2. **Static PDFs** are hard to read on phone screens
+3. **No search functionality** across IKEA's manual library
+4. **First-time assemblers** get confused by 2D diagrams
+5. **No interactivity** - can't zoom, rotate, or ask questions
+
+## 💡 Our Solution: assem3ly
+
+**"Just type what furniture you have - we'll find it, process it, and give you an interactive 3D guide"**
+
+### User Experience Flow:
+
+1. **Search** → User types "Billy Bookcase"
+2. **Scrape** → We find and download the manual using Bright Data (~30s)
+3. **Process** → AI extracts step-by-step instructions with Gemini (~60s)
+4. **View** → Interactive 3D assembly guide with Three.js
+
+### Features:
+- 🔍 Smart search across all IKEA products
+- 🤖 AI-powered instruction extraction
+- 🎨 3D visualization of each assembly step
+- 📱 Mobile-friendly interface
+- ⚡ Fast (<90 seconds end-to-end)
+
+## 🏆 Why This Wins the Hackathon
+
+### 1. Solves a Real Problem
+- Anyone who's assembled IKEA furniture knows the struggle
+- Addresses a gap: no central manual database exists
+- Makes a tedious task actually enjoyable
+
+### 2. Showcases Bright Data Products
+- ✅ **SERP API**: Search Google/IKEA for products
+- ✅ **Web Scraper**: Extract product data from IKEA pages
+- ✅ **Web Unlocker**: Download PDFs that block scrapers
+- ✅ **Residential Proxies**: Access regional IKEA sites
+
+### 3. Technical Complexity
+- Combines 3 cutting-edge technologies
+- Full-stack application
+- Real-time processing pipeline
+
+### 4. Impressive Demo
+- Live scraping and processing
+- Beautiful 3D visualization
+- Fast results
+- Works reliably for 5+ demo products
+
+## 🎬 Demo Story
+
+### Opening Hook:
+> "Have you ever lost an IKEA manual? There's no central database - 9,500 products scattered across 30 websites. We built the world's first intelligent furniture assembly assistant."
+
+### Live Demo Flow:
+1. **Search**: "Watch - I'll search for 'MALM dresser'"
+2. **Behind the scenes**: Bright Data finds and scrapes it
+3. **AI Processing**: Gemini extracts 3D instructions
+4. **Result**: Interactive 3D guide you can rotate and explore
+
+### Closing Impact:
+> "Bright Data gave us 95% success rate finding PDFs. Without it, we'd need weeks of manual collection. With it, any furniture manual is accessible instantly."
+
+## 🎯 Success Metrics
+
+### Technical:
+- ✅ 95%+ success rate with Bright Data
+- ✅ <90 seconds end-to-end
+- ✅ Unique AI extraction per page
+- ✅ Smooth 60fps 3D rendering
+
+### UX:
+- ✅ Beautiful, intuitive interface
+- ✅ Real-time progress indicators
+- ✅ Mobile responsive
+- ✅ Error handling
+
+## 📊 The Numbers
+
+- **9,500+** IKEA products worldwide
+- **30+** regional IKEA websites
+- **0** centralized manual databases (we're the first!)
+- **<90 seconds** from search to 3D guide
+- **3 technologies** integrated (scraping, AI, 3D)
+- **4 people, 24 hours**
