@@ -69,7 +69,7 @@ export function AssemblyPageClient({ manualId }: { manualId: string }) {
         </aside>
         <section className="lg:col-span-8">
           <Card className="p-0">
-            <AssemblyViewer steps={scene.steps} currentStep={currentStep} onStepChange={setCurrentStep} />
+            <AssemblyViewer scenePreset={step.scenePreset} />
           </Card>
           <div className="mt-4">
             <StepNavigation

@@ -1,33 +1,68 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { AssemblyStep } from "@lib/api-client";
-import { ViewerControls } from "./ViewerControls";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { getScenePreset, PrimitivePart } from '@/lib/scene-presets';
 
-export default function AssemblyViewer({
-  steps,
-  currentStep,
-  onStepChange,
-}: {
-  steps: AssemblyStep[];
-  currentStep: number;
-  onStepChange: (i: number) => void;
-}) {
-  const canvasRef = useRef<HTMLDivElement>(null);
+interface AssemblyViewerProps {
+  scenePreset?: string;
+}
 
-  useEffect(() => {
-    // Placeholder for Three.js integration; for now, just render a mock canvas area
-  }, [currentStep]);
+export default function AssemblyViewer({ scenePreset }: AssemblyViewerProps) {
+  const scene = getScenePreset(scenePreset);
 
   return (
-    <div className="flex flex-col">
-      <div ref={canvasRef} className="h-[420px] w-full rounded-xl bg-black/5 dark:bg-white/10" />
-      <div className="border-t border-black/5 p-3 text-xs text-black/60 dark:border-white/10 dark:text-white/60">
-        Showing: {steps[currentStep]?.title}
-      </div>
-      <ViewerControls onResetCamera={() => {}} />
+    <div className="h-[600px] w-full rounded-xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100">
+      <Canvas
+        camera={{
+          position: scene.camera.position,
+          fov: 50
+        }}
+      >
+        {/* Background color */}
+        <color attach="background" args={['#f8f9fa']} />
+        
+        {/* Lighting setup */}
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 5, 5]} intensity={0.5} castShadow />
+        <directionalLight position={[-5, 3, -5]} intensity={0.3} />
+
+        {/* Render all parts in the scene */}
+        {scene.parts.map((part, i) => (
+          <Part key={i} {...part} />
+        ))}
+
+        {/* Camera controls */}
+        <OrbitControls
+          enableDamping
+          dampingFactor={0.05}
+          minPolarAngle={0}
+          maxPolarAngle={Math.PI / 2}
+          target={scene.camera.lookAt}
+        />
+
+        {/* Floor grid for spatial reference */}
+        <gridHelper args={[5, 20, '#999999', '#cccccc']} position={[0, 0, 0]} />
+      </Canvas>
     </div>
   );
 }
 
+/**
+ * Component to render a single primitive part
+ */
+function Part({ type, color, args, position, rotation, scale = [1, 1, 1] }: PrimitivePart) {
+  // Map primitive type to Three.js geometry
+  const geometries = {
+    box: <boxGeometry args={args as [number, number, number]} />,
+    cylinder: <cylinderGeometry args={args as [number, number, number, number]} />,
+    sphere: <sphereGeometry args={args as [number, number]} />
+  };
 
+  return (
+    <mesh position={position} rotation={rotation} scale={scale} castShadow receiveShadow>
+      {geometries[type]}
+      <meshStandardMaterial color={color} />
+    </mesh>
+  );
+}

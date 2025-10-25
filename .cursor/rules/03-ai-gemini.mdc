@@ -36,33 +36,35 @@ for (let pageNo = 1; pageNo <= totalPages; pageNo++) {
 
 ## Core Data Structure
 
+**IMPORTANT**: Gemini identifies assembly PATTERNS, not 3D coordinates!
+
 ```typescript
 interface ExtractedStep {
   stepNumber: number
   instruction: string  // Clear, concise assembly instruction
-  parts: Array<{
-    name: string      // e.g., "Shelf board", "Screw M6x20"
+  partsList: Array<{
+    name: string      // e.g., "panel", "dowel", "screw", "bracket_L"
     quantity: number  // Number needed for this step
-    partId?: string   // Optional: IKEA part number
   }>
   tools: string[]     // e.g., ["Phillips screwdriver", "Allen key 4mm"]
-  sceneJson: {
-    parts: Array<{
-      type: string    // "box", "cylinder", etc.
-      position: [number, number, number]
-      rotation: [number, number, number]
-      scale: [number, number, number]
-      color: string   // Hex color
-      name: string    // Part name
-    }>
-    camera?: {
-      position: [number, number, number]
-      lookAt: [number, number, number]
-    }
-  }
+  scenePreset: string // ← KEY: Name of pre-defined 3D scene (see available presets below)
   imageUrl?: string   // Optional: Original page image
 }
 ```
+
+### Available Scene Presets
+
+Gemini must choose ONE of these preset names based on the assembly pattern:
+
+- `insert_dowels` - Inserting dowels into panel holes
+- `attach_bracket_corner` - Attaching L-bracket to corner of panel
+- `attach_bracket_center` - Attaching bracket to center of panel
+- `stack_panels_vertical` - Stacking panels vertically with connectors
+- `stack_panels_horizontal` - Stacking panels horizontally with dowels
+- `attach_back_panel` - Attaching thin back panel to frame
+- `install_shelf` - Installing shelf on pins/pegs
+- `attach_legs` - Attaching legs to table/furniture top
+- `generic_assembly` - Fallback for unrecognized patterns
 
 ## Your Responsibilities
 
@@ -75,8 +77,8 @@ interface ExtractedStep {
 ### 2. Gemini API Integration
 - Send each page image to Gemini
 - Include metadata from Person 1 in prompts for better context
-- Extract: step number, instruction, parts, tools
-- Generate 3D scene JSON for Person 4
+- Extract: step number, instruction, parts list, tools
+- **Identify assembly pattern** and map to scene preset name
 
 ### 3. Enhanced Prompt Structure
 ```typescript
@@ -92,11 +94,32 @@ Current Page: ${pageNo}/${totalPages}
 Extract the assembly step from this image and return a JSON object with:
 1. stepNumber: The step number shown in the image
 2. instruction: A clear, actionable instruction (1-2 sentences)
-3. parts: Array of parts used (with names and quantities)
+3. partsList: Array of parts used with names and quantities
 4. tools: Array of tools required
-5. sceneJson: 3D scene description for rendering
+5. scenePreset: Choose ONE from these options based on the assembly pattern:
+   - "insert_dowels" - if inserting dowels into holes
+   - "attach_bracket_corner" - if attaching bracket to corner
+   - "attach_bracket_center" - if attaching bracket to center
+   - "stack_panels_vertical" - if stacking panels upright
+   - "stack_panels_horizontal" - if stacking panels flat
+   - "attach_back_panel" - if attaching back panel
+   - "install_shelf" - if installing shelf on pins
+   - "attach_legs" - if attaching furniture legs
+   - "generic_assembly" - if none of the above match
 
-Return ONLY valid JSON, no markdown formatting.`
+Return ONLY valid JSON, no markdown formatting.
+
+Example output:
+{
+  "stepNumber": 1,
+  "instruction": "Insert 4 dowels into the pre-drilled holes on panel A",
+  "partsList": [
+    { "name": "panel", "quantity": 1 },
+    { "name": "dowel", "quantity": 4 }
+  ],
+  "tools": [],
+  "scenePreset": "insert_dowels"
+}`
 ```
 
 ### 4. Rate Limiting
@@ -104,12 +127,20 @@ Return ONLY valid JSON, no markdown formatting.`
 - Handle API rate limits gracefully
 - Implement retry logic (max 3 attempts)
 
-### 5. Scene JSON Generation
-Generate simple 3D primitives for Person 4:
-- Use box, cylinder, sphere shapes
-- Position parts logically based on assembly
-- Use realistic proportions from product dimensions
-- Include connector parts (screws, dowels) if visible
+### 5. Scene Preset Selection Strategy
+
+**DO NOT generate 3D coordinates!** Instead, identify the assembly pattern:
+
+- Look at the diagram: What action is being performed?
+- Is it inserting parts into holes? → `insert_dowels`
+- Is it attaching metal brackets? → `attach_bracket_corner` or `attach_bracket_center`
+- Is it connecting panels? → `stack_panels_vertical` or `stack_panels_horizontal`
+- Is it adding a back panel? → `attach_back_panel`
+- Is it placing a shelf? → `install_shelf`
+- Is it attaching legs? → `attach_legs`
+- Not sure? → `generic_assembly`
+
+Person 4 has pre-built 3D scenes for each pattern. Your job is pattern recognition, not 3D modeling.
 
 ## Integration with Person 1 (Bright Data)
 ```typescript
@@ -122,7 +153,7 @@ const result = await extractSteps({
 ```
 
 ## Integration with Person 4 (3D Rendering)
-Person 4 will receive your `ExtractedStep[]` array and render `step.sceneJson` in Three.js.
+Person 4 will receive your `ExtractedStep[]` array and use `step.scenePreset` to load the appropriate pre-built 3D scene from their scene library.
 
 ## Environment Variables
 ```bash

@@ -11,6 +11,7 @@ export type AssemblyStep = {
   description?: string;
   parts?: string[];
   tools?: string[];
+  scenePreset?: string;  // Maps to SCENE_LIBRARY preset names
 };
 
 export type AssemblyScene = {
@@ -32,6 +33,17 @@ const MOCK_MANUALS: Manual[] = Array.from({ length: 50 }).map((_, i) => ({
   category: ["Living Room", "Bedroom", "Office"][i % 3],
 }));
 
+const SCENE_PRESETS = [
+  'insert_dowels',
+  'attach_bracket_corner',
+  'stack_panels_vertical',
+  'attach_back_panel',
+  'install_shelf',
+  'attach_legs',
+  'stack_panels_horizontal',
+  'attach_bracket_center'
+];
+
 const MOCK_SCENE: AssemblyScene = {
   id: "scene-1",
   steps: Array.from({ length: 12 }).map((_, i) => ({
@@ -40,6 +52,7 @@ const MOCK_SCENE: AssemblyScene = {
     description: "Attach parts as shown and tighten screws.",
     parts: ["Side Panel", "Shelf", "Screw"].slice(0, (i % 3) + 1),
     tools: ["Screwdriver", "Hammer"].slice(0, (i % 2) + 1),
+    scenePreset: SCENE_PRESETS[i % SCENE_PRESETS.length],
   })),
 };
 
