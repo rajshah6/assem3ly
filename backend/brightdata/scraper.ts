@@ -8,6 +8,17 @@ import * as cheerio from 'cheerio'
 import { ScrapedProduct } from './types'
 import { downloadPDF } from './pdf-downloader'
 
+// Check required environment variables
+if (!process.env.BRIGHTDATA_CUSTOMER_ID) {
+  throw new Error('Missing BRIGHTDATA_CUSTOMER_ID in .env file')
+}
+if (!process.env.BRIGHTDATA_ZONE) {
+  throw new Error('Missing BRIGHTDATA_ZONE in .env file')
+}
+if (!process.env.BRIGHTDATA_API_KEY) {
+  throw new Error('Missing BRIGHTDATA_API_KEY in .env file')
+}
+
 // Bright Data Residential Proxy configuration
 const PROXY_HOST = 'brd.superproxy.io'
 const PROXY_PORT = 22225
@@ -26,7 +37,10 @@ const axiosWithProxy = axios.create({
   timeout: 30000,
   headers: {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-  }
+  },
+  httpsAgent: new (require('https').Agent)({
+    rejectUnauthorized: false // Required for proxy SSL certificates
+  })
 })
 
 export async function scrapeProduct(productName: string): Promise<ScrapedProduct> {
@@ -34,25 +48,64 @@ export async function scrapeProduct(productName: string): Promise<ScrapedProduct
   console.log('🌐 Using Bright Data Residential Proxies (150M+ IPs)...')
   
   try {
-    // Step 1: Search IKEA
-    const searchQuery = productName.trim().replace(/\s+/g, '+')
-    const searchUrl = `https://www.ikea.com/us/en/search/?query=${searchQuery}`
+    let fullProductUrl = ''
     
-    console.log('🔎 Searching:', searchUrl)
-    const searchResponse = await axiosWithProxy.get(searchUrl)
-    const $search = cheerio.load(searchResponse.data)
-    
-    // Find first product link
-    const productLink = $search('.plp-product-list__product a.plp-product__name-link').first()
-    const productUrl = productLink.attr('href')
-    
-    if (!productUrl) {
-      throw new Error('No products found for: ' + productName)
+    // Check if user provided a direct IKEA product URL
+    if (productName.includes('ikea.com') && productName.includes('/p/')) {
+      console.log('📄 Direct URL provided, skipping search')
+      fullProductUrl = productName
+    } else {
+      // Step 1: Search IKEA
+      const searchQuery = productName.trim().replace(/\s+/g, '+')
+      const searchUrl = `https://www.ikea.com/us/en/search/?query=${searchQuery}`
+      
+      console.log('🔎 Searching:', searchUrl)
+      const searchResponse = await axiosWithProxy.get(searchUrl)
+      const $search = cheerio.load(searchResponse.data)
+      
+      // Try multiple selectors to find product links
+      let productUrl: string | null = null
+      
+      // Try different selectors that IKEA might use
+      const selectors = [
+        'a[href*="/p/"]',  // Any link containing /p/
+        '.plp-product-list__product a',
+        '.product-compact a',
+        '.product-list a',
+        'a.plp-product__name-link'
+      ]
+      
+      for (const selector of selectors) {
+        const links = $search(selector)
+        if (links.length > 0) {
+          // Find first link that looks like a product page
+          links.each((i, el) => {
+            const href = $search(el).attr('href')
+            if (href && href.includes('/p/') && href.includes('-')) {
+              productUrl = href
+              return false // break
+            }
+          })
+          if (productUrl) {
+            console.log('✅ Found product link with selector:', selector)
+            break
+          }
+        }
+      }
+      
+      if (!productUrl) {
+        console.error('❌ Could not find product link')
+        console.error('📄 Page title:', $search('title').text())
+        console.error('🔗 Found', $search('a').length, 'total links')
+        throw new Error('No products found for: ' + productName)
+      }
+      
+      // At this point, TypeScript knows productUrl is a string (not null)
+      const url: string = productUrl
+      fullProductUrl = url.startsWith('http') 
+        ? url 
+        : `https://www.ikea.com${url}`
     }
-    
-    const fullProductUrl = productUrl.startsWith('http') 
-      ? productUrl 
-      : `https://www.ikea.com${productUrl}`
     
     console.log('📄 Product page:', fullProductUrl)
     

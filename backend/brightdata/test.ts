@@ -29,8 +29,22 @@ async function test() {
   console.log('')
   
   const testProducts = [
-    'billy bookcase',
-    // Add more test products here
+    // Test 1: Billy Bookcase (US site)
+    //'https://www.ikea.com/us/en/p/billy-bookcase-white-20522046/',
+    
+    // Test 2: SEKTION Cabinet (Canadian site) - your example
+    //'https://www.ikea.com/ca/en/p/sektion-base-cabinet-frame-white-90265388/',
+    
+    // Test 3: Search term - full product name (realistic user input)
+    // 'sektion base cabinet frame',
+    
+    // More test products (uncomment to try):
+    // 'https://www.ikea.com/us/en/p/malm-bed-frame-high-white-luroey-s69009475/',
+    // 'https://www.ikea.com/us/en/p/kallax-shelf-unit-white-80275887/',
+    
+    // Search terms (uncomment to test search):
+    'billy bookcase white'
+    // 'malm dresser',
   ]
   
   for (const productName of testProducts) {

@@ -20,6 +20,11 @@ export async function downloadPDF(pdfUrl: string, productId: string): Promise<st
   
   const filePath = path.join(PDF_DIR, `${productId}.pdf`)
   
+  // Check environment variables
+  if (!process.env.BRIGHTDATA_CUSTOMER_ID || !process.env.BRIGHTDATA_ZONE || !process.env.BRIGHTDATA_API_KEY) {
+    throw new Error('Missing Bright Data credentials in .env file')
+  }
+  
   try {
     // Use Bright Data Web Unlocker proxy
     const response = await axios.get(pdfUrl, {
@@ -35,7 +40,10 @@ export async function downloadPDF(pdfUrl: string, productId: string): Promise<st
       timeout: 30000,
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
-      }
+      },
+      httpsAgent: new (require('https').Agent)({
+        rejectUnauthorized: false // Required for proxy SSL certificates
+      })
     })
     
     fs.writeFileSync(filePath, response.data)
