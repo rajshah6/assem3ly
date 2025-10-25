@@ -12,14 +12,18 @@ import {
 
 /**
  * Generates a complete 3D scene from Gemini's step analysis
+ * @param analysis - The analysis from Gemini
+ * @param stepId - The current step number
+ * @param previousSteps - All previously processed steps for cumulative positioning
  */
 export function generateSceneFromAnalysis(
   analysis: GeminiStepAnalysis,
-  stepId: number
+  stepId: number,
+  previousSteps: AssemblyStep[] = []
 ): AssemblyStep {
-  const parts = generatePartsArray(analysis)
+  const parts = generatePartsArray(analysis, stepId, previousSteps)
   const assemblySequence = generateAssemblySequence(analysis, parts)
-  const camera = generateCameraSettings(parts)
+  const camera = generateCameraSettings(parts, previousSteps)
   const lighting = generateLightingSettings()
   
   return {
@@ -35,17 +39,37 @@ export function generateSceneFromAnalysis(
 
 /**
  * Converts Gemini's part descriptions to 3D part objects with geometric primitives
+ * Positions parts cumulatively based on previous steps
  */
-function generatePartsArray(analysis: GeminiStepAnalysis): Part[] {
+function generatePartsArray(
+  analysis: GeminiStepAnalysis, 
+  currentStepId: number,
+  previousSteps: AssemblyStep[]
+): Part[] {
+  // Calculate assembly bounds from all previous parts
+  const assemblyBounds = calculateAssemblyBounds(previousSteps)
+  
+  // Determine base offset for this step (build upward/outward)
+  const baseOffset = calculateStepOffset(currentStepId, assemblyBounds, previousSteps)
+  
   return analysis.partsUsed.map((part, index) => {
     const partType = part.type.toLowerCase()
     const dimensions = estimateDimensions(partType, part.estimatedDimensions)
     const color = getPartColor(part.material || 'metal', partType)
     const geometry = getPartGeometry(partType, dimensions)
     
-    // Position parts in a grid for now
-    const gridX = (index % 3) * 0.15
-    const gridZ = Math.floor(index / 3) * 0.15
+    // Calculate position for this part based on:
+    // 1. Step-specific offset (where this step builds)
+    // 2. Part arrangement within the step
+    // 3. Part type (e.g., screws go near connection points)
+    const position = calculatePartPosition(
+      partType,
+      index,
+      baseOffset,
+      dimensions,
+      analysis.partsUsed.length,
+      previousSteps
+    )
     
     return {
       id: `${partType}_${String(index + 1).padStart(2, '0')}`,
@@ -55,12 +79,153 @@ function generatePartsArray(analysis: GeminiStepAnalysis): Part[] {
       dimensions,
       material: part.material || 'metal',
       color,
-      position: { x: gridX, y: 0, z: gridZ },
+      position,
       rotation: { x: 0, y: 0, z: 0 },
       scale: { x: 1, y: 1, z: 1 },
       geometry
     }
   })
+}
+
+/**
+ * Calculates the bounding box of all previously assembled parts
+ */
+function calculateAssemblyBounds(previousSteps: AssemblyStep[]): {
+  minX: number; maxX: number;
+  minY: number; maxY: number;
+  minZ: number; maxZ: number;
+  centerX: number; centerY: number; centerZ: number;
+} {
+  if (previousSteps.length === 0) {
+    return {
+      minX: 0, maxX: 0,
+      minY: 0, maxY: 0,
+      minZ: 0, maxZ: 0,
+      centerX: 0, centerY: 0, centerZ: 0
+    }
+  }
+
+  let minX = Infinity, maxX = -Infinity
+  let minY = Infinity, maxY = -Infinity
+  let minZ = Infinity, maxZ = -Infinity
+
+  previousSteps.forEach(step => {
+    step.parts.forEach(part => {
+      const halfWidth = (part.dimensions.width || 0.05) / 2
+      const halfHeight = (part.dimensions.height || 0.05) / 2
+      const halfDepth = (part.dimensions.depth || 0.05) / 2
+
+      minX = Math.min(minX, part.position.x - halfWidth)
+      maxX = Math.max(maxX, part.position.x + halfWidth)
+      minY = Math.min(minY, part.position.y - halfHeight)
+      maxY = Math.max(maxY, part.position.y + halfHeight)
+      minZ = Math.min(minZ, part.position.z - halfDepth)
+      maxZ = Math.max(maxZ, part.position.z + halfDepth)
+    })
+  })
+
+  return {
+    minX, maxX, minY, maxY, minZ, maxZ,
+    centerX: (minX + maxX) / 2,
+    centerY: (minY + maxY) / 2,
+    centerZ: (minZ + maxZ) / 2
+  }
+}
+
+/**
+ * Calculates the base offset for a new step based on assembly progress
+ */
+function calculateStepOffset(
+  stepId: number,
+  bounds: ReturnType<typeof calculateAssemblyBounds>,
+  previousSteps: AssemblyStep[]
+): Vector3 {
+  // First step starts at origin
+  if (previousSteps.length === 0) {
+    return { x: 0, y: 0, z: 0 }
+  }
+
+  // Determine building direction based on step patterns
+  // Most IKEA furniture builds up (Y) and out (X/Z)
+  
+  // Every few steps, offset in a different direction
+  const buildPhase = Math.floor((stepId - 1) / 3)
+  
+  switch (buildPhase % 4) {
+    case 0: // Build upward
+      return { x: bounds.centerX, y: bounds.maxY + 0.05, z: bounds.centerZ }
+    case 1: // Build forward
+      return { x: bounds.centerX, y: bounds.centerY, z: bounds.maxZ + 0.1 }
+    case 2: // Build to the side
+      return { x: bounds.maxX + 0.1, y: bounds.centerY, z: bounds.centerZ }
+    case 3: // Build backward
+      return { x: bounds.centerX, y: bounds.centerY, z: bounds.minZ - 0.1 }
+    default:
+      return { x: bounds.centerX, y: bounds.maxY + 0.05, z: bounds.centerZ }
+  }
+}
+
+/**
+ * Calculates position for an individual part within a step
+ */
+function calculatePartPosition(
+  partType: string,
+  partIndex: number,
+  baseOffset: Vector3,
+  dimensions: Dimensions,
+  totalPartsInStep: number,
+  previousSteps: AssemblyStep[]
+): Vector3 {
+  // Small connectors (screws, washers) cluster near base
+  if (isSmallConnector(partType)) {
+    const angle = (partIndex / Math.max(totalPartsInStep - 1, 1)) * Math.PI * 2
+    const radius = 0.08 // 8cm from base
+    return {
+      x: baseOffset.x + Math.cos(angle) * radius,
+      y: baseOffset.y,
+      z: baseOffset.z + Math.sin(angle) * radius
+    }
+  }
+
+  // Large structural parts (panels, boards, legs)
+  if (isStructuralPart(partType)) {
+    // Offset slightly from base, arranged in a line
+    const spacing = 0.15
+    const offset = (partIndex - totalPartsInStep / 2) * spacing
+    return {
+      x: baseOffset.x + offset,
+      y: baseOffset.y + (dimensions.height || 0.05) / 2,
+      z: baseOffset.z
+    }
+  }
+
+  // Medium parts (brackets, supports) - arrange in grid
+  const gridCols = 3
+  const spacing = 0.12
+  const col = partIndex % gridCols
+  const row = Math.floor(partIndex / gridCols)
+  
+  return {
+    x: baseOffset.x + (col - 1) * spacing,
+    y: baseOffset.y,
+    z: baseOffset.z + row * spacing
+  }
+}
+
+/**
+ * Checks if part is a small connector (screw, washer, etc.)
+ */
+function isSmallConnector(partType: string): boolean {
+  const connectors = ['screw', 'washer', 'bolt', 'nut', 'dowel', 'pin', 'cam']
+  return connectors.some(type => partType.includes(type))
+}
+
+/**
+ * Checks if part is a structural component (panel, leg, etc.)
+ */
+function isStructuralPart(partType: string): boolean {
+  const structural = ['panel', 'board', 'shelf', 'leg', 'rail', 'frame', 'top', 'table']
+  return structural.some(type => partType.includes(type))
 }
 
 /**
@@ -323,9 +488,13 @@ function mapActionType(action: string): 'move' | 'rotate' | 'attach' | 'insert' 
 
 /**
  * Generates camera settings for optimal viewing
+ * Takes into account both current step parts and entire assembly
  */
-function generateCameraSettings(parts: Part[]): { position: Vector3; lookAt: Vector3 } {
-  // Calculate center of all parts
+function generateCameraSettings(
+  parts: Part[], 
+  previousSteps: AssemblyStep[]
+): { position: Vector3; lookAt: Vector3 } {
+  // Calculate center of current step parts
   const center = { x: 0, y: 0, z: 0 }
   
   if (parts.length > 0) {
@@ -339,9 +508,25 @@ function generateCameraSettings(parts: Part[]): { position: Vector3; lookAt: Vec
     center.z /= parts.length
   }
   
+  // If we have previous steps, adjust camera to show overall assembly
+  if (previousSteps.length > 0) {
+    const bounds = calculateAssemblyBounds(previousSteps)
+    // Look at the center of the overall assembly
+    center.x = (center.x + bounds.centerX) / 2
+    center.y = (center.y + bounds.centerY) / 2
+    center.z = (center.z + bounds.centerZ) / 2
+  }
+  
   // Position camera at angle for good view
+  // Distance increases as assembly grows
+  const cameraDistance = 0.4 + previousSteps.length * 0.03
+  
   return {
-    position: { x: center.x + 0.3, y: center.y + 0.2, z: center.z + 0.4 },
+    position: { 
+      x: center.x + cameraDistance * 0.75, 
+      y: center.y + cameraDistance * 0.5, 
+      z: center.z + cameraDistance 
+    },
     lookAt: center
   }
 }

@@ -59,8 +59,8 @@ export async function processPDF(
         continue
       }
       
-      // Generate 3D scene from analysis
-      const assemblyStep = generateSceneFromAnalysis(analysis, stepCounter)
+      // Generate 3D scene from analysis, passing previous steps for cumulative positioning
+      const assemblyStep = generateSceneFromAnalysis(analysis, stepCounter, steps)
       steps.push(assemblyStep)
       
       console.log(`✅ Step ${stepCounter} completed: ${assemblyStep.title}`)
@@ -226,6 +226,6 @@ export async function processSinglePage(
     return null
   }
   
-  return generateSceneFromAnalysis(analysis, pageNumber)
+  return generateSceneFromAnalysis(analysis, pageNumber, [])
 }
 
