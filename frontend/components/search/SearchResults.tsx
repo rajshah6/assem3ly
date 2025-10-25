@@ -1,26 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { Manual } from "@lib/api-client";
-import { Card, Badge } from "@components/ui/primitives";
+import { LibraryCard } from "@components/library/library-card";
 
 export function SearchResults({ results }: { results: Manual[] }) {
   if (!results.length) return null;
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {results.map((manual) => (
-        <Link key={manual.id} href={`/assembly/${manual.id}`}>
-          <Card className="group cursor-pointer p-4 transition hover:shadow-md">
-            <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-black/5 dark:bg-white/10">
-              <Image src={manual.imageUrl} alt={manual.name} fill className="object-contain p-6 opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="flex items-center justify-between gap-2">
-              <h3 className="line-clamp-2 text-sm font-medium">{manual.name}</h3>
-              <Badge>{manual.category}</Badge>
-            </div>
-          </Card>
-        </Link>
+        <LibraryCard key={manual.id} manual={manual} />
       ))}
     </div>
   );

@@ -25,14 +25,14 @@ export function LibrarySection() {
     <div>
       <div className="mb-4 flex items-end justify-between">
         <div>
-          <h2 className="text-xl font-semibold tracking-tight">Top 100 manuals</h2>
+          <h2 className="text-xl font-semibold tracking-tight">Top 50 manuals</h2>
           <p className="text-sm text-black/60 dark:text-white/60">Most commonly searched IKEA manuals</p>
         </div>
       </div>
       {loading ? (
         <Card className="flex items-center gap-2 p-4 text-sm"><Spinner /> Loading…</Card>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {manuals.map((m) => (
             <LibraryCard key={m.id} manual={m} />
           ))}

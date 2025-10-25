@@ -18,7 +18,7 @@ export type AssemblyScene = {
   steps: AssemblyStep[];
 };
 
-const MOCK_MANUALS: Manual[] = Array.from({ length: 100 }).map((_, i) => ({
+const MOCK_MANUALS: Manual[] = Array.from({ length: 50 }).map((_, i) => ({
   id: `manual-${i + 1}`,
   name: [
     "BILLY Bookcase",
@@ -27,8 +27,8 @@ const MOCK_MANUALS: Manual[] = Array.from({ length: 100 }).map((_, i) => ({
     "LACK Table",
     "KALLAX Shelf",
     "HEMNES Bed",
-  ][i % 6] + ` #${i + 1}`,
-  imageUrl: `/file.svg`,
+  ][i % 6],
+  imageUrl: `https://www.ikea.com/us/en/images/products/billy-bookcase-white__0625599_pe692385_s5.jpg`,
   category: ["Living Room", "Bedroom", "Office"][i % 3],
 }));
 
@@ -45,7 +45,7 @@ const MOCK_SCENE: AssemblyScene = {
 
 export async function fetchTopManuals(): Promise<Manual[]> {
   await new Promise((r) => setTimeout(r, 300));
-  return MOCK_MANUALS;
+  return MOCK_MANUALS.slice(0, 50);
 }
 
 export async function searchManuals(query: string): Promise<Manual[]> {
