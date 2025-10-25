@@ -4,11 +4,14 @@ import { useHeaderTabs } from "@components/navigation/tabs-context";
 import { TiltCard } from "@components/ui/tilt-card";
 import { WireframePreview } from "@components/landing/wireframe-preview";
 import { SearchSection } from "@components/search/search-section";
+import { PlaceholdersAndVanishInput } from "@components/ui/placeholders-and-vanish-input";
+import { useState } from "react";
 import { LibrarySection } from "@components/library/library-section";
 import { LinkPreview } from "@components/ui/link-preview";
 
 export function LandingSwitcher() {
   const { active } = useHeaderTabs();
+  const [searchQ, setSearchQ] = useState("");
   if (active === "home") {
     return (
       <div className="flex flex-col items-center text-center">
@@ -42,7 +45,20 @@ export function LandingSwitcher() {
   if (active === "search") {
     return (
       <div className="mx-auto w-full max-w-6xl rounded-xl border border-black/10 bg-white p-4">
-        <SearchSection />
+        <div className="mb-6">
+          <PlaceholdersAndVanishInput
+            placeholders={[
+              "Search BILLY Bookcase",
+              "MALM dresser manual",
+              "KALLAX shelf instructions",
+              "POÄNG chair",
+              "LACK table assembly",
+            ]}
+            onChange={(e: any) => setSearchQ(e.target.value)}
+            onSubmit={(e: any) => e.preventDefault()}
+          />
+        </div>
+        <SearchSection externalQuery={searchQ} hideInput />
       </div>
     );
   }
