@@ -1,5 +1,11 @@
 [
   {
+    "id": "product-0",
+    "name": "TOMMARYD Table",
+    "imageUrl": "/images/product-0.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
     "id": "product-1",
     "name": "BILLY Bookcase",
     "imageUrl": "/images/product-1.jpg",
@@ -291,12 +297,6 @@
     "id": "product-49",
     "name": "TOBIAS Chair",
     "imageUrl": "/images/product-49.jpg",
-    "category": "Kitchen & Dining"
-  },
-  {
-    "id": "product-50",
-    "name": "LISABO Table",
-    "imageUrl": "/images/product-50.jpg",
     "category": "Kitchen & Dining"
   }
 ]
