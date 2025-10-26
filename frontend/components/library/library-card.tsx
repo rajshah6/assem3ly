@@ -27,8 +27,12 @@ const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
 export function LibraryCard({ manual }: { manual: Manual }) {
   const [hovered, setHovered] = React.useState(false);
 
+  // Special redirect for TOMMARYD Table
+  const href =
+    manual.id === "product-0" ? "/assembly-preview" : `/assembly/${manual.id}`;
+
   return (
-    <Link href={`/assembly/${manual.id}`}>
+    <Link href={href}>
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -52,16 +56,17 @@ export function LibraryCard({ manual }: { manual: Manual }) {
               {/* Product image that fills the card on hover */}
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="relative h-full w-full">
-                  <Image 
-                    src={manual.imageUrl} 
-                    alt={manual.name} 
-                    fill 
+                  <Image
+                    src={manual.imageUrl}
+                    alt={manual.name}
+                    fill
                     className="object-contain"
                     unoptimized
                     onError={(e) => {
-                      console.error('Image failed to load:', manual.imageUrl);
+                      console.error("Image failed to load:", manual.imageUrl);
                       // Fallback to a placeholder
-                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200"%3E%3Crect width="200" height="200" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999"%3EIKEA%3C/text%3E%3C/svg%3E';
+                      e.currentTarget.src =
+                        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200"%3E%3Crect width="200" height="200" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999"%3EIKEA%3C/text%3E%3C/svg%3E';
                     }}
                   />
                 </div>
@@ -79,11 +84,11 @@ export function LibraryCard({ manual }: { manual: Manual }) {
 
         {/* Badge at bottom */}
         <div className="absolute bottom-4 right-4 z-30">
-          <Badge className="opacity-70 group-hover/canvas-card:opacity-100">{manual.category}</Badge>
+          <Badge className="opacity-70 group-hover/canvas-card:opacity-100">
+            {manual.category}
+          </Badge>
         </div>
       </div>
     </Link>
   );
 }
-
-
