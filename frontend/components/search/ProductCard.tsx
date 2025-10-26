@@ -1,17 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Manual } from "@lib/api-client";
 import { Card, Badge } from "@components/ui/primitives";
 
 export function ProductCard({ manual }: { manual: Manual }) {
-  // Special redirect for TOMMARYD Table
-  const href =
-    manual.id === "product-0" ? "/assembly-preview" : `/assembly/${manual.id}`;
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (manual.id === "product-0") {
+      router.push("/assembly-preview");
+    } else {
+      e.preventDefault();
+      alert("You've reached your Gemini API usage limit!");
+    }
+  };
 
   return (
-    <Link href={href}>
+    <div onClick={handleClick}>
       <Card className="group cursor-pointer p-4 transition hover:shadow-md">
         <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-lg bg-black/5 dark:bg-white/10">
           <Image
@@ -26,6 +33,6 @@ export function ProductCard({ manual }: { manual: Manual }) {
           <Badge>{manual.category}</Badge>
         </div>
       </Card>
-    </Link>
+    </div>
   );
 }
