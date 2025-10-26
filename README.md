@@ -96,10 +96,12 @@ assem3ly/
 │   │   ├── assembly-preview/ # Preview functionality
 │   │   ├── preview/          # Additional preview pages
 │   │   ├── api/              # API routes
+│   │   │   └── assembly-chat/ # Reka AI chatbot API
 │   │   └── page.tsx          # Landing page
 │   ├── components/
 │   │   ├── assembly/         # Assembly-related components
 │   │   │   ├── AssemblyPageClient.tsx
+│   │   │   ├── AssemblyChatbot.tsx   # AI chatbot component
 │   │   │   ├── PartsList.tsx
 │   │   │   ├── StepList.tsx
 │   │   │   ├── StepNavigation.tsx
@@ -133,6 +135,7 @@ assem3ly/
 - **AI-Powered PDF Processing**: Automatically extracts assembly instructions from PDF manuals using Google Gemini
 - **Web Scraping**: Scrapes IKEA and other furniture retailers for product manuals using Bright Data
 - **3D Visualization**: Interactive 3D viewer for assembly steps using Three.js
+- **AI Assembly Assistant**: Real-time chatbot powered by Reka AI that answers questions about current step, parts, and tools
 - **Product Library**: Browse top 50 furniture products with cached data
 - **Step-by-Step Instructions**: Clear, organized assembly instructions with parts lists and tools
 - **Modern UI**: Built with Next.js 15, React, and Tailwind CSS
@@ -141,7 +144,7 @@ assem3ly/
 
 - **Backend**: Node.js, Express, TypeScript
 - **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
-- **AI**: Google Gemini API
+- **AI**: Google Gemini API, Reka AI (reka-core for chatbot)
 - **Scraping**: Bright Data (SERP API, Web Unlocker, Web Scraper)
 - **3D**: Three.js
 
@@ -176,6 +179,7 @@ PORT=3001
 ### Frontend (.env.local)
 ```bash
 NEXT_PUBLIC_API_URL=http://localhost:3001
+REKA_API_KEY=your_reka_api_key_here
 ```
 
 See `.env.example` files in both `backend/` and `frontend/` directories for complete configuration options.
@@ -184,6 +188,7 @@ See `.env.example` files in both `backend/` and `frontend/` directories for comp
 
 - **[QUICK_START.md](./QUICK_START.md)** - Get up and running quickly
 - **[USAGE_GUIDE.md](./USAGE_GUIDE.md)** - Detailed usage instructions
+- **[CHATBOT_QUICK_START.md](./CHATBOT_QUICK_START.md)** - AI chatbot setup and testing
 - **[TOP_50_FEATURE_SUMMARY.md](./TOP_50_FEATURE_SUMMARY.md)** - Product library feature overview
 - **[IMAGE_DOWNLOAD_GUIDE.md](./IMAGE_DOWNLOAD_GUIDE.md)** - Guide for downloading product images
 - **[backend/SETUP.md](./backend/SETUP.md)** - Backend setup instructions
@@ -200,6 +205,7 @@ See `.env.example` files in both `backend/` and `frontend/` directories for comp
    - Necessary tools
    - 3D positioning data
 4. **Visualize**: Frontend displays interactive 3D assembly instructions with step-by-step guidance
+5. **Assist**: Reka AI chatbot answers real-time questions about the current assembly step
 
 ## 🤝 Contributing
 
