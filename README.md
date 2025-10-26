@@ -1,132 +1,107 @@
-# assembl3D 🛠️
+# assembl3D
 
-**AI-powered assembly manual finder with 3D visualization**
+Transform IKEA assembly manuals into interactive 3D guides using AI and web scraping.
 
-Built for the Cal Hacks 🏆
+## What it does
 
-## 🎯 What It Does
+Search for any IKEA product or paste a URL, and get an interactive 3D assembly guide. The app scrapes assembly manuals from IKEA, processes them with Google Gemini AI, and renders step-by-step instructions in 3D using React Three Fiber.
 
-1. Search for any furniture (e.g., "Billy Bookcase")
-2. Scrape IKEA manuals using Bright Data
-3. Process PDFs with Google Gemini AI
-4. Display interactive 3D assembly instructions
+We've also pre-loaded the 50 most popular IKEA products for instant access.
 
-## 🚀 Quick Start
+## Features
+
+- **Search or URL input** - Find products by name or paste any IKEA product URL
+- **Pre-loaded library** - Browse 50 popular IKEA products with instant access
+- **AI processing** - Gemini Vision automatically extracts assembly steps from PDFs
+- **Interactive 3D viewer** - Navigate assembly instructions with React Three Fiber
+- **Web scraping** - Bright Data handles reliable product data and manual fetching
+
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+
 - [Bright Data API key](https://brightdata.com)
 - [Google Gemini API key](https://ai.google.dev)
 
-### Backend Setup
+### Backend
+
 ```bash
 cd backend
-cp .env.example .env
-# Edit .env and add your API keys
 npm install
+cp .env.example .env
+# Add your API keys to .env
 npm run dev
 ```
 
-Backend will run on: **http://localhost:3001**
+Runs on `http://localhost:3001`
 
-### Frontend Setup
+### Frontend
+
 ```bash
 cd frontend
-cp .env.example .env.local
 npm install
+cp .env.example .env.local
+# Add NEXT_PUBLIC_API_URL=http://localhost:3001
 npm run dev
 ```
 
-Frontend will run on: **http://localhost:3000**
+Runs on `http://localhost:3000`
 
-## 📁 Project Structure
+## Tech Stack
+
+**Frontend**
+- Next.js 15 with TypeScript
+- React Three Fiber for 3D rendering
+- Tailwind CSS + Shadcn/ui
+- @react-three/drei for 3D helpers
+
+**Backend**
+- Node.js + Express + TypeScript
+- Google Gemini API for vision processing
+- Bright Data for web scraping (SERP API, Web Unlocker, Web Scraper)
+- Automated PDF to image conversion
+
+## How it works
+
+1. User searches for a product, pastes an IKEA URL, or browses the library
+2. Bright Data scrapes the product page and downloads the assembly manual PDF
+3. Gemini AI analyzes each page and extracts assembly steps, parts, and tools
+4. Frontend renders the instructions in an interactive 3D environment
+
+## Project Structure
 
 ```
 assembl3D/
-├── backend/              # Express API
+├── backend/
 │   ├── src/
-│   │   ├── api/         # API routes
-│   │   ├── gemini/      # Person 3: AI processing
-│   │   └── index.ts     # Server entry point
-│   ├── brightdata/      # Person 1: Web scraping
-│   └── data/            # Downloaded PDFs and cache
-├── frontend/            # Next.js 15 + Tailwind CSS
-│   ├── app/            # Pages and routing
-│   └── components/     # React components
+│   │   ├── api/          # REST endpoints
+│   │   └── gemini/       # AI processing
+│   ├── brightdata/       # Web scraping
+│   └── data/             # Cached PDFs and images
+└── frontend/
+    ├── app/              # Next.js pages
+    ├── components/
+    │   ├── search/       # Search UI
+    │   ├── assembly/     # Step navigation
+    │   ├── viewer/       # 3D viewer (React Three Fiber)
+    │   └── library/      # Product library
+    └── lib/              # Utilities
 ```
 
-## 👥 Team Structure
+## Environment Variables
 
-### Person 1: Bright Data Scraping
-- **Directory**: `backend/brightdata/`
-- **Tasks**:
-  - Implement SERP API search
-  - Scrape IKEA product pages
-  - Download PDFs using Web Unlocker
-
-### Person 2: Frontend UI
-- **Directory**: `frontend/components/`
-- **Tasks**:
-  - Build search interface
-  - Create assembly step viewer
-  - Handle loading/error states
-
-### Person 3: AI Processing
-- **Directory**: `backend/src/gemini/`
-- **Tasks**:
-  - Convert PDFs to images
-  - Process with Gemini API
-  - Extract step-by-step instructions
-
-### Person 4: 3D Viewer
-- **Directory**: `frontend/components/viewer/`
-- **Tasks**:
-  - Set up Three.js scene
-  - Render 3D assembly parts
-  - Add camera controls and interactions
-
-## 🔀 Git Workflow
-
-Each person should create their own feature branch:
-
+**backend/.env**
 ```bash
-git checkout -b feature/brightdata-scraping  # Person 1
-git checkout -b feature/frontend-ui          # Person 2
-git checkout -b feature/gemini-ai            # Person 3
-git checkout -b feature/3d-viewer            # Person 4
+BRIGHTDATA_API_KEY=your_key
+GEMINI_API_KEY=your_key
+PORT=3001
 ```
 
-## 🛠️ Tech Stack
+**frontend/.env.local**
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
 
-- **Backend**: Node.js, Express, TypeScript
-- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
-- **AI**: Google Gemini API
-- **Scraping**: Bright Data (SERP API, Web Unlocker, Web Scraper)
-- **3D**: Three.js
+## License
 
-## 📦 Key Dependencies
-
-### Backend
-- `express` - Web server
-- `cors` - CORS handling
-- `dotenv` - Environment variables
-- `@google/generative-ai` - Gemini API (Person 3)
-- `axios` - HTTP requests (Person 1)
-
-### Frontend
-- `next` - React framework
-- `react` - UI library
-- `tailwindcss` - Styling
-- `three` - 3D rendering (Person 4)
-
-## 🔑 Environment Variables
-
-See `.env.example` files in both `backend/` and `frontend/` directories.
-
-## 📚 Documentation
-
-Check the `.cursor/rules/` directory for detailed implementation guidelines for each team member.
-
----
-
-**Let's build something amazing in 24 hours!** 🚀
+MIT

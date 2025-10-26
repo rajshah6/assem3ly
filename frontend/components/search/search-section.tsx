@@ -39,7 +39,7 @@ export function SearchSection({
         setResults([{
           id: 'url-input',
           name: 'IKEA Product Via URL',
-          imageUrl: '/products/product-0.jpg', // Placeholder
+          imageUrl: '/products/product-50.jpg', // Placeholder
           category: 'Custom',
           productUrl: currentQuery, // Store the URL
         } as any]);

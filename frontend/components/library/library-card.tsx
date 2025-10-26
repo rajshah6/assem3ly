@@ -29,12 +29,8 @@ export function LibraryCard({ manual }: { manual: Manual }) {
   const [showLoader, setShowLoader] = React.useState(false);
   const router = useRouter();
 
-  // Handle click - TOMMARYD uses static data, others trigger scraping
-  const handleClick = async (e: React.MouseEvent) => {
-    if (manual.id === "product-0") {
-      // TOMMARYD - use existing flow with static data
   // Handle click - only TOMMARYD Table is available
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = async (e: React.MouseEvent) => {
     if (manual.id === "product-50") {
       // Show loader for 5 seconds before navigating
       setShowLoader(true);
