@@ -1,33 +1,52 @@
-"use client";
+'use client'
 
-import { useEffect, useRef } from "react";
-import { AssemblyStep } from "@lib/api-client";
-import { ViewerControls } from "./ViewerControls";
+import { CumulativeScene } from './CumulativeScene'
 
-export default function AssemblyViewer({
-  steps,
-  currentStep,
-  onStepChange,
-}: {
-  steps: AssemblyStep[];
-  currentStep: number;
-  onStepChange: (i: number) => void;
-}) {
-  const canvasRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Placeholder for Three.js integration; for now, just render a mock canvas area
-  }, [currentStep]);
-
-  return (
-    <div className="flex flex-col">
-      <div ref={canvasRef} className="h-[420px] w-full rounded-xl bg-black/5 dark:bg-white/10" />
-      <div className="border-t border-black/5 p-3 text-xs text-black/60 dark:border-white/10 dark:text-white/60">
-        Showing: {steps[currentStep]?.title}
-      </div>
-      <ViewerControls onResetCamera={() => {}} />
-    </div>
-  );
+interface Step {
+  stepId?: number
+  title?: string
+  description?: string
+  parts?: any[]
+  tools?: any[]
+  sceneJson?: any
+  assemblySequence?: any[]
+  camera?: any
+  lighting?: any
 }
 
+interface AssemblyViewerProps {
+  steps?: Step[]
+  currentStep?: number
+  onStepChange?: (step: number) => void
+  height?: string
+}
 
+/**
+ * Main 3D Assembly Viewer Component
+ * Displays parts in an interactive 3D environment with cumulative rendering
+ */
+function AssemblyViewer({ steps = [], currentStep = 0, onStepChange, height = "680px" }: AssemblyViewerProps = {}) {
+  // If steps data is valid, use CumulativeScene
+  if (steps.length > 0 && steps[0].assemblySequence !== undefined) {
+    return (
+      <CumulativeScene 
+        steps={steps as any}
+        currentStep={currentStep}
+        onStepChange={onStepChange}
+        height={height}
+      />
+    )
+  }
+
+  // Fallback: Simple placeholder
+  return (
+    <div className="relative w-full bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center" style={{ height }}>
+      <div className="text-white text-center">
+        <p className="text-lg">No assembly steps available</p>
+        <p className="text-sm text-gray-400 mt-2">Waiting for data...</p>
+      </div>
+    </div>
+  )
+}
+
+export default AssemblyViewer
