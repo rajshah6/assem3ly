@@ -1,52 +1,74 @@
-import clsx from "clsx";
+"use client";
+
+import React from "react";
+import {
+  DraggableCardBody,
+  DraggableCardContainer,
+} from "@/components/ui/draggable-card";
+import { TOP_50_PRODUCTS } from "@/lib/top-50-data";
 
 export function WireframePreview({ className }: { className?: string }) {
+  const items = [
+    {
+      title: TOP_50_PRODUCTS[1].name,
+      image: TOP_50_PRODUCTS[1].imageUrl,
+      className: "absolute top-10 left-[20%] rotate-[-5deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[2].name,
+      image: TOP_50_PRODUCTS[2].imageUrl,
+      className: "absolute top-40 left-[25%] rotate-[-7deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[3].name,
+      image: TOP_50_PRODUCTS[3].imageUrl,
+      className: "absolute top-5 left-[40%] rotate-[8deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[4].name,
+      image: TOP_50_PRODUCTS[4].imageUrl,
+      className: "absolute top-32 left-[55%] rotate-[10deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[5].name,
+      image: TOP_50_PRODUCTS[5].imageUrl,
+      className: "absolute top-20 right-[35%] rotate-[2deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[6].name,
+      image: TOP_50_PRODUCTS[6].imageUrl,
+      className: "absolute top-24 left-[45%] rotate-[-7deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[7].name,
+      image: TOP_50_PRODUCTS[7].imageUrl,
+      className: "absolute top-8 left-[30%] rotate-[4deg]",
+    },
+    {
+      title: TOP_50_PRODUCTS[8].name,
+      image: TOP_50_PRODUCTS[8].imageUrl,
+      className: "absolute top-16 right-[25%] rotate-[-3deg]",
+    },
+  ];
+
   return (
-    <div
-      className={clsx(
-        "rounded-xl border border-black/10 bg-white p-4 text-black shadow-[0_1px_0_0_rgba(0,0,0,0.04)]",
-        className
-      )}
-    >
-      <div className="flex gap-4">
-        {/* Left: sidebar bars to hint StepList */}
-        <div className="w-48 shrink-0">
-          <div className="mb-3 h-6 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-          <div className="mb-2 h-4 rounded bg-black/10" />
-        </div>
-
-        {/* Right: viewer area with outline cube */}
-        <div className="relative grid flex-1 place-items-center rounded-lg border border-black/10 bg-white">
-          {/* Cube outline */}
-          <div className="relative h-40 w-40">
-            {/* square */}
-            <div className="absolute inset-0 rounded border border-black/30" />
-            {/* top-right shifted square */}
-            <div className="absolute left-4 top-4 h-full w-full rounded border border-black/30" />
-            {/* connecting edges */}
-            <div className="absolute left-0 top-0 h-4 w-px bg-black/30" />
-            <div className="absolute right-0 top-0 h-4 w-px bg-black/30" />
-            <div className="absolute left-0 bottom-0 h-4 w-px bg-black/30" />
-            <div className="absolute right-0 bottom-0 h-4 w-px bg-black/30" />
-            <div className="absolute left-4 top-4 h-4 w-px bg-black/30" />
-            <div className="absolute right-4 top-4 h-4 w-px bg-black/30" />
-            <div className="absolute left-4 bottom-4 h-4 w-px bg-black/30" />
-            <div className="absolute right-4 bottom-4 h-4 w-px bg-black/30" />
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom: prev/next pills */}
-      <div className="mt-4 flex items-center justify-end gap-2">
-        <div className="h-6 w-14 rounded-full border border-black/10" />
-        <div className="h-6 w-14 rounded-full border border-black/10" />
-      </div>
-    </div>
+    <DraggableCardContainer className="relative flex min-h-[400px] w-full items-center justify-center overflow-clip">
+      <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-xl font-black text-neutral-400 md:text-3xl dark:text-neutral-800">
+        Interactive IKEA Assembly Manuals
+      </p>
+      {items.map((item, index) => (
+        <DraggableCardBody key={index} className={item.className}>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="pointer-events-none relative z-10 h-48 w-48 object-cover rounded-lg"
+          />
+          <h3 className="mt-2 text-center text-xs font-bold text-neutral-700 dark:text-neutral-300">
+            {item.title}
+          </h3>
+        </DraggableCardBody>
+      ))}
+    </DraggableCardContainer>
   );
 }
 

@@ -18,14 +18,14 @@ export function LandingSwitcher() {
       <div className="flex flex-col items-center text-center">
         <h1 className="text-6xl font-extrabold tracking-tight text-black md:text-7xl">assembl3D</h1>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-black/50">interactive assembly manuals</p>
-        <div className="mt-12 w-full">
+        <div className="mt-6 w-full">
           <TiltCard>
             <WireframePreview className="mx-auto w-full max-w-5xl" />
           </TiltCard>
         </div>
 
         {/* Minimalist hype with link previews */}
-        <div className="mx-auto mt-12 max-w-3xl px-4 text-left">
+        <div className="mx-auto mt-6 max-w-3xl px-4 text-left">
           <p className="text-base leading-relaxed text-black/70">
             Reinventing how we build. Use us to view your hardest manuals like
             {" "}
@@ -41,7 +41,7 @@ export function LandingSwitcher() {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-10 flex justify-center gap-6">
+        <div className="mt-6 flex justify-center gap-6">
           <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"

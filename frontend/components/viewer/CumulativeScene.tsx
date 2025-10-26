@@ -244,7 +244,7 @@ export function CumulativeScene({
       </Canvas>
 
       {/* UI Overlay */}
-      <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg max-w-[350px]">
+      <div className="absolute top-20 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg max-w-[350px]">
         <h2 className="text-xl font-bold mb-2">Step {currentStepData.stepId}</h2>
         <h3 className="text-lg font-semibold mb-1">{currentStepData.title}</h3>
         <p className="text-sm text-gray-300 mb-4">
@@ -261,7 +261,7 @@ export function CumulativeScene({
       </div>
 
       {/* Parts Count - Top Right */}
-      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
+      <div className="absolute top-20 right-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
         <h3 className="font-bold mb-2">Parts in Assembly</h3>
         <div className="text-sm space-y-1">
           <p>

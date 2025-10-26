@@ -31,7 +31,7 @@ export function LibraryCard({ manual }: { manual: Manual }) {
 
   // Handle click - only TOMMARYD Table is available
   const handleClick = (e: React.MouseEvent) => {
-    if (manual.id === "product-0") {
+    if (manual.id === "product-50") {
       // Show loader for 5 seconds before navigating
       setShowLoader(true);
       setTimeout(() => {
