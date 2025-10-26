@@ -131,4 +131,4 @@ Check the `.cursor/rules/` directory for detailed implementation guidelines for 
 
 ---
 
-**Let's build something amazing in 24 hours!** 🚀
+**Built with ❤️ at Cal Hacks 12.0**
