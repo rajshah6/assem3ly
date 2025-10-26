@@ -610,8 +610,8 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": 0.21,
-            "y": 0.03,
+            "x": 0.05,
+            "y": 0.065,
             "z": -0.48
           },
           "rotation": {
@@ -645,8 +645,8 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": -0.21,
-            "y": 0.03,
+            "x": -0.05,
+            "y": 0.065,
             "z": 0.48
           },
           "rotation": {
@@ -680,8 +680,8 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": 0.21,
-            "y": 0.03,
+            "x": 0.05,
+            "y": 0.065,
             "z": 0.48
           },
           "rotation": {
@@ -715,8 +715,8 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": -0.21,
-            "y": 0.03,
+            "x": -0.05,
+            "y": 0.065,
             "z": -0.48
           },
           "rotation": {
