@@ -1,0 +1,3589 @@
+{
+  "totalPages": 12,
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "Assemble Table Frame",
+      "description": "Attach the mounting brackets to the side rails and position under the tabletop.",
+      "parts": [
+        {
+          "id": "bracket_06",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_05",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_04",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_03",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "rail_right",
+          "name": "Right Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "rail_left",
+          "name": "Left Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "tabletop_01",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 100,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.5708,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.03,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "corner_block_01",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_04",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_03",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_02",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "tabletop_01",
+          "from": {
+            "x": 0,
+            "y": 0.8,
+            "z": 0
+          },
+          "to": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "rail_left",
+          "from": {
+            "x": -0.25,
+            "y": 0.7,
+            "z": 0
+          },
+          "to": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "rail_right",
+          "from": {
+            "x": 0.25,
+            "y": 0.7,
+            "z": 0
+          },
+          "to": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_01",
+          "from": {
+            "x": -0.25,
+            "y": 0.6,
+            "z": -0.3
+          },
+          "to": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_01",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_02",
+          "from": {
+            "x": -0.25,
+            "y": 0.6,
+            "z": 0
+          },
+          "to": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_02",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_03",
+          "from": {
+            "x": -0.25,
+            "y": 0.6,
+            "z": 0.3
+          },
+          "to": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_03",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_04",
+          "from": {
+            "x": 0.25,
+            "y": 0.6,
+            "z": -0.3
+          },
+          "to": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_04",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_05",
+          "from": {
+            "x": 0.25,
+            "y": 0.6,
+            "z": 0
+          },
+          "to": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_05",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "bracket_06",
+          "from": {
+            "x": 0.25,
+            "y": 0.6,
+            "z": 0.3
+          },
+          "to": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "rotate",
+          "targetId": "bracket_06",
+          "axis": "y",
+          "angle": 720,
+          "duration": 1.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 1.2
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 2,
+      "title": "Add Corner Blocks",
+      "description": "Insert the 4 corner mounting blocks into the frame corners by rotating them into place.",
+      "parts": [
+        {
+          "id": "corner_block_04",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_03",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_02",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_01",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "bracket_06",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_05",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_04",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_03",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "rail_right",
+          "name": "Right Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "rail_left",
+          "name": "Left Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "tabletop_01",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1.2,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.5708,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.03,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "corner_block_01",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_04",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_03",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_02",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.9,
+          "y": 0.5,
+          "z": 1.1
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 3,
+      "title": "Add Edge Support Bars",
+      "description": "Attach 2 support bars along the front and back edges of the tabletop.",
+      "parts": [
+        {
+          "id": "edge_support_bar_01",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.8
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_02",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.8
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_04",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_03",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_02",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_01",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "bracket_06",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_05",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_04",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_03",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "rail_right",
+          "name": "Right Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "rail_left",
+          "name": "Left Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "tabletop_01",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1.2,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.5708,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.03,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "edge_support_bar_01",
+          "from": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.8
+          },
+          "to": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "edge_support_bar_02",
+          "from": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.8
+          },
+          "to": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.9,
+          "y": 0.5,
+          "z": 1.1
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 4,
+      "title": "Attach Table Legs",
+      "description": "Attach the 4 table legs to the corner blocks at each corner of the frame.",
+      "parts": [
+        {
+          "id": "foot_01",
+          "name": "Plastic Foot Back-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.21,
+            "y": 0.935,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_02",
+          "name": "Plastic Foot Back-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.21,
+            "y": 0.935,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_03",
+          "name": "Plastic Foot Front-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.21,
+            "y": 0.935,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_04",
+          "name": "Plastic Foot Front-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.21,
+            "y": 0.935,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_01",
+          "name": "Table Leg Back-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.21,
+            "y": 0.49,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_02",
+          "name": "Table Leg Back-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.21,
+            "y": 0.49,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_03",
+          "name": "Table Leg Front-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.21,
+            "y": 0.49,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_04",
+          "name": "Table Leg Front-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.21,
+            "y": 0.49,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_01",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_02",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_04",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_03",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_02",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_01",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "bracket_06",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_05",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_04",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_03",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "rail_right",
+          "name": "Right Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "rail_left",
+          "name": "Left Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "tabletop_01",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1.2,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.5708,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.03,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "table_leg_01",
+          "from": {
+            "x": 0.21,
+            "y": 0.49,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.29,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "table_leg_02",
+          "from": {
+            "x": -0.21,
+            "y": 0.49,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.29,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "table_leg_03",
+          "from": {
+            "x": 0.21,
+            "y": 0.49,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.29,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "table_leg_04",
+          "from": {
+            "x": -0.21,
+            "y": 0.49,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.29,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "foot_01",
+          "from": {
+            "x": 0.21,
+            "y": 0.935,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.535,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "foot_02",
+          "from": {
+            "x": 0.21,
+            "y": 0.935,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.535,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "foot_03",
+          "from": {
+            "x": -0.21,
+            "y": 0.935,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.535,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "foot_04",
+          "from": {
+            "x": -0.21,
+            "y": 0.935,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.535,
+            "z": 0.48
+          },
+          "duration": 1.5
+        }
+        
+      ],
+      "camera": {
+        "position": {
+          "x": 0.9,
+          "y": 0.5,
+          "z": 1.1
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 5,
+      "title": "Attach Plastic Feet",
+      "description": "Attach the plastic feet to the bottom of each leg to protect the floor.",
+      "parts": [
+        {
+          "id": "foot_01",
+          "name": "Plastic Foot Back-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.21,
+            "y": 0.535,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_02",
+          "name": "Plastic Foot Back-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.21,
+            "y": 0.535,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_03",
+          "name": "Plastic Foot Front-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.21,
+            "y": 0.535,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_04",
+          "name": "Plastic Foot Front-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.21,
+            "y": 0.535,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_01",
+          "name": "Table Leg Back-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.21,
+            "y": 0.29,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_02",
+          "name": "Table Leg Back-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.21,
+            "y": 0.29,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_03",
+          "name": "Table Leg Front-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.21,
+            "y": 0.29,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_04",
+          "name": "Table Leg Front-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.21,
+            "y": 0.29,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 3.141592653589793,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_01",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_02",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_04",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_03",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_02",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "corner_block_01",
+          "name": "Corner Block",
+          "type": "block",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.015,
+            "depth": 0.027999999999999997
+          },
+          "material": "plastic",
+          "color": "#E0E0E0",
+          "position": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": -1.05,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.015,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "bracket_06",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_05",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_04",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_03",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bracket_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 1,
+          "dimensions": {
+            "width": 0.004,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.045,
+            "z": -0.3
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.03,
+              16
+            ]
+          }
+        },
+        {
+          "id": "rail_right",
+          "name": "Right Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "rail_left",
+          "name": "Left Side Rail",
+          "type": "rail",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.25,
+            "y": 0.03,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.04,
+              1
+            ]
+          }
+        },
+        {
+          "id": "tabletop_01",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1.2,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 1.5708,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.03,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        
+        
+      ],
+      "groupTransform": {
+        "position": { "x": 0, "y": 0.55, "z": 0 },
+        "rotation": { "x": 3.141592653589793, "y": 0, "z": 0 }
+      },
+      "camera": {
+        "position": {
+          "x": 0.9,
+          "y": 0.5,
+          "z": 1.1
+        },
+        "lookAt": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "productName": "TOMMARYD Underframe",
+    "category": "Table",
+    "productDimensions": {
+      "width": 1.3,
+      "height": 0.7,
+      "depth": 0.7
+    }
+  }
+}

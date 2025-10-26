@@ -1,0 +1,1370 @@
+{
+  "totalPages": 12,
+  "steps": [
+    {
+      "stepId": 1,
+      "title": "Install Tabletop Brackets",
+      "description": "Attach the four rectangular brackets to the underside of the tabletop by inserting them into the pre-drilled holes and rotating them to lock in place.",
+      "parts": [
+        {
+          "id": "bracket_01",
+          "name": "Rectangular Bracket",
+          "type": "bracket",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.08,
+            "depth": 0.04
+          },
+          "material": "plastic",
+          "color": "#F0F0F0",
+          "position": {
+            "x": -0.12,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.08,
+              0.05,
+              0.04
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "rotate",
+          "targetId": "bracket_01",
+          "axis": "y",
+          "angle": 720,
+          "duration": 2.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.18000000000000005,
+          "y": 0.2,
+          "z": 0.4
+        },
+        "lookAt": {
+          "x": -0.12,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 2,
+      "title": "Attach Side Rails",
+      "description": "Attach the side rails to the table top using screws and washers, ensuring proper alignment with the pre-drilled holes.",
+      "parts": [
+        {
+          "id": "flathead screw_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 6,
+          "dimensions": {
+            "width": 0.02,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#777777",
+          "position": {
+            "x": -0.039999999999999994,
+            "y": 0.07500000000000001,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        },
+        {
+          "id": "washer_02",
+          "name": "Washer",
+          "type": "washer",
+          "quantity": 6,
+          "dimensions": {
+            "width": 0.005,
+            "depth": 0.001
+          },
+          "material": "metal",
+          "color": "#AAAAAA",
+          "position": {
+            "x": -0.15999999999999998,
+            "y": 0.07500000000000001,
+            "z": 0.06928203230275509
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "torus",
+            "args": [
+              0.01,
+              0.002,
+              16,
+              32
+            ]
+          }
+        },
+        {
+          "id": "rail_03",
+          "name": "Side Rail",
+          "type": "rail",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.6,
+            "depth": 0.05
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": -0.12,
+            "y": 0.1,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.6,
+              0.05,
+              0.05
+            ]
+          }
+        },
+        {
+          "id": "panel_04",
+          "name": "Table Top",
+          "type": "panel",
+          "quantity": 1,
+          "dimensions": {
+            "width": 1.2,
+            "depth": 0.6
+          },
+          "material": "wood",
+          "color": "#D2B48C",
+          "position": {
+            "x": 0.03,
+            "y": 0.1,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              1.2,
+              0.02,
+              0.6
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "flathead screw_01",
+          "from": {
+            "x": 0.06000000000000001,
+            "y": 0.1,
+            "z": 0
+          },
+          "to": {
+            "x": -0.039999999999999994,
+            "y": 0.07500000000000001,
+            "z": 0
+          },
+          "duration": 3
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.22625,
+          "y": 0.25875000000000004,
+          "z": 0.4386602540378444
+        },
+        "lookAt": {
+          "x": -0.09624999999999999,
+          "y": 0.04375,
+          "z": 0.008660254037844387
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 3,
+      "title": "Attach Support Bars",
+      "description": "Attach the support bars to the underside of the table top using screws and washers. Insert the screw through the washer and then through the support bar into the table top.",
+      "parts": [
+        {
+          "id": "flathead screw_01",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 6,
+          "dimensions": {
+            "width": 0.04,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#777777",
+          "position": {
+            "x": 0.11000000000000003,
+            "y": 0.175,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        },
+        {
+          "id": "washer_02",
+          "name": "Washer",
+          "type": "washer",
+          "quantity": 6,
+          "dimensions": {
+            "width": 0.02,
+            "depth": 0.001
+          },
+          "material": "metal",
+          "color": "#AAAAAA",
+          "position": {
+            "x": -0.049999999999999975,
+            "y": 0.175,
+            "z": 9.797174393178826e-18
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "torus",
+            "args": [
+              0.01,
+              0.002,
+              16,
+              32
+            ]
+          }
+        },
+        {
+          "id": "metal bar_03",
+          "name": "Support Bar",
+          "type": "metal bar",
+          "quantity": 3,
+          "dimensions": {
+            "width": 0.6,
+            "depth": 0.04
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.15000000000000002,
+            "y": 0.175,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.6,
+              0.05,
+              0.04
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "flathead screw_01",
+          "from": {
+            "x": 0.21000000000000002,
+            "y": 0.1,
+            "z": 0
+          },
+          "to": {
+            "x": 0.11000000000000003,
+            "y": 0.175,
+            "z": 0
+          },
+          "duration": 3
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.3950000000000001,
+          "y": 0.3425,
+          "z": 0.46
+        },
+        "lookAt": {
+          "x": 0.050000000000000024,
+          "y": 0.11249999999999999,
+          "z": 1.6328623988631376e-18
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 4,
+      "title": "Attach Brackets",
+      "description": "Attach the rectangular brackets to the underside of the tabletop frame, inserting them into the designated slots and rotating to secure them in place.",
+      "parts": [
+        {
+          "id": "bracket_01",
+          "name": "Rectangular Bracket",
+          "type": "bracket",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.05,
+            "depth": 0.03
+          },
+          "material": "plastic",
+          "color": "#F0F0F0",
+          "position": {
+            "x": -0.08999999999999997,
+            "y": 0.0875,
+            "z": 0.4
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.05,
+              0.03
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "rotate",
+          "targetId": "bracket_01",
+          "axis": "y",
+          "angle": 720,
+          "duration": 2.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.3375,
+          "y": 0.3325,
+          "z": 0.69
+        },
+        "lookAt": {
+          "x": -0.02999999999999997,
+          "y": 0.0875,
+          "z": 0.2
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 5,
+      "title": "Attach Legs",
+      "description": "Attach the four table legs to the frame using bolts, washers and a wrench.",
+      "parts": [
+        {
+          "id": "leg_01",
+          "name": "Table Leg",
+          "type": "leg",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.7,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": -0.345,
+            "y": 0.11249999999999999,
+            "z": 0.515
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bolt_02",
+          "name": "Bolt",
+          "type": "bolt",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.04,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.03000000000000003,
+            "y": 0.0875,
+            "z": 0.595
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        },
+        {
+          "id": "washer_03",
+          "name": "Flat Washer",
+          "type": "washer",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.002,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#AAAAAA",
+          "position": {
+            "x": -0.049999999999999975,
+            "y": 0.0875,
+            "z": 0.515
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "torus",
+            "args": [
+              0.01,
+              0.002,
+              16,
+              32
+            ]
+          }
+        },
+        {
+          "id": "washer_04",
+          "name": "Spring Washer",
+          "type": "washer",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.003,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#AAAAAA",
+          "position": {
+            "x": 0.030000000000000013,
+            "y": 0.0875,
+            "z": 0.435
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "torus",
+            "args": [
+              0.01,
+              0.002,
+              16,
+              32
+            ]
+          }
+        },
+        {
+          "id": "nut_05",
+          "name": "Nut",
+          "type": "nut",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.01,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.11000000000000003,
+            "y": 0.0875,
+            "z": 0.515
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.01,
+              0.05,
+              0.01
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "nut_05",
+          "from": {
+            "x": 0.21000000000000002,
+            "y": 0.1,
+            "z": 0.515
+          },
+          "to": {
+            "x": 0.11000000000000003,
+            "y": 0.0875,
+            "z": 0.515
+          },
+          "duration": 3.5
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.38250000000000006,
+          "y": 0.35,
+          "z": 0.80625
+        },
+        "lookAt": {
+          "x": -0.007499999999999972,
+          "y": 0.09,
+          "z": 0.28625
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 6,
+      "title": "Tighten Legs",
+      "description": "Using the wrench, tighten the bolts on each leg to secure them to the table frame.",
+      "parts": [
+        {
+          "id": "leg_01",
+          "name": "Leg",
+          "type": "leg",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.7,
+            "depth": 0.04
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": -0.33249999999999996,
+            "y": 0.11249999999999999,
+            "z": 0.7
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              16
+            ]
+          }
+        },
+        {
+          "id": "bolt_02",
+          "name": "Bolt",
+          "type": "bolt",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.03,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": -0.07249999999999995,
+            "y": 0.0875,
+            "z": 0.769282032302755
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        },
+        {
+          "id": "washer_03",
+          "name": "Washer",
+          "type": "washer",
+          "quantity": 8,
+          "dimensions": {
+            "width": 0.01,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#AAAAAA",
+          "position": {
+            "x": -0.07250000000000001,
+            "y": 0.0875,
+            "z": 0.6307179676972449
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "torus",
+            "args": [
+              0.01,
+              0.002,
+              16,
+              32
+            ]
+          }
+        },
+        {
+          "id": "nut_04",
+          "name": "Nut",
+          "type": "nut",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.01,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.04750000000000003,
+            "y": 0.0875,
+            "z": 0.7
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.01,
+              0.05,
+              0.01
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "nut_04",
+          "from": {
+            "x": 0.14750000000000002,
+            "y": 0.1,
+            "z": 0.7
+          },
+          "to": {
+            "x": 0.04750000000000003,
+            "y": 0.0875,
+            "z": 0.7
+          },
+          "duration": 2
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.3425,
+          "y": 0.36562500000000003,
+          "z": 0.9750000000000001
+        },
+        "lookAt": {
+          "x": -0.06999999999999998,
+          "y": 0.090625,
+          "z": 0.425
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 7,
+      "title": "Attach Brackets",
+      "description": "Attach the brackets to the underside of the table top using screws and tighten with the provided tool.",
+      "parts": [
+        {
+          "id": "l-bracket_01",
+          "name": "Bracket",
+          "type": "l-bracket",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.08,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.61,
+            "y": 0.0875,
+            "z": 0.23714101615137753
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.08,
+              0.05,
+              0.05
+            ]
+          }
+        },
+        {
+          "id": "flathead screw_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.02,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#777777",
+          "position": {
+            "x": 0.8099999999999999,
+            "y": 0.0875,
+            "z": 0.2371410161513775
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "flathead screw_02",
+          "from": {
+            "x": 0.9099999999999999,
+            "y": 0.1,
+            "z": 0.2371410161513775
+          },
+          "to": {
+            "x": 0.8099999999999999,
+            "y": 0.0875,
+            "z": 0.2371410161513775
+          },
+          "duration": 3
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.77375,
+          "y": 0.37750000000000006,
+          "z": 0.8171410161513776
+        },
+        "lookAt": {
+          "x": 0.33875,
+          "y": 0.0875,
+          "z": 0.2371410161513775
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 8,
+      "title": "Adjusting Leg Height",
+      "description": "Adjust the height of the legs by rotating the foot to level the table; turn clockwise to lower and counter-clockwise to raise.",
+      "parts": [
+        {
+          "id": "adjustable foot_01",
+          "name": "Leg Foot",
+          "type": "adjustable foot",
+          "quantity": 4,
+          "dimensions": {
+            "width": 0.05,
+            "height": 0.05,
+            "depth": 0.05
+          },
+          "material": "plastic",
+          "color": "#F0F0F0",
+          "position": {
+            "x": 0.845,
+            "y": 0.11249999999999999,
+            "z": 0.23714101615137753
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.05,
+              0.05
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "rotate",
+          "targetId": "adjustable foot_01",
+          "axis": "y",
+          "angle": 720,
+          "duration": 2
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.91125,
+          "y": 0.40499999999999997,
+          "z": 0.8471410161513775
+        },
+        "lookAt": {
+          "x": 0.45375,
+          "y": 0.09999999999999999,
+          "z": 0.23714101615137753
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 9,
+      "title": "Attach Brackets",
+      "description": "Attach the 2 metal brackets to the table frame using the provided screws and Allen key, securing them at the specified locations.",
+      "parts": [
+        {
+          "id": "bracket_01",
+          "name": "Metal Bracket",
+          "type": "bracket",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.05,
+            "depth": 0.03
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.85,
+            "y": 0.0875,
+            "z": 0.23714101615137753
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.05,
+              0.05,
+              0.03
+            ]
+          }
+        },
+        {
+          "id": "screw_02",
+          "name": "Screw",
+          "type": "screw",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.01,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#777777",
+          "position": {
+            "x": 1.05,
+            "y": 0.0875,
+            "z": 0.2371410161513775
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "screw_02",
+          "from": {
+            "x": 1.1500000000000001,
+            "y": 0.1,
+            "z": 0.2371410161513775
+          },
+          "to": {
+            "x": 1.05,
+            "y": 0.0875,
+            "z": 0.2371410161513775
+          },
+          "duration": 3
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.99875,
+          "y": 0.4075,
+          "z": 0.8771410161513775
+        },
+        "lookAt": {
+          "x": 0.51875,
+          "y": 0.0875,
+          "z": 0.2371410161513775
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    },
+    {
+      "stepId": 10,
+      "title": "Attach Brackets",
+      "description": "Attach the support brackets to the frame with screws using the provided Allen key, then hang the table on the wall.",
+      "parts": [
+        {
+          "id": "bracket_01",
+          "name": "Support Bracket",
+          "type": "bracket",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.1,
+            "depth": 0.05
+          },
+          "material": "metal",
+          "color": "#C0C0C0",
+          "position": {
+            "x": 0.06,
+            "y": 0.0875,
+            "z": -0.4
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.1,
+              0.05,
+              0.05
+            ]
+          }
+        },
+        {
+          "id": "flathead screw_02",
+          "name": "Screw",
+          "type": "flathead screw",
+          "quantity": 2,
+          "dimensions": {
+            "width": 0.02,
+            "depth": 0.01
+          },
+          "material": "metal",
+          "color": "#777777",
+          "position": {
+            "x": 0.26,
+            "y": 0.0875,
+            "z": -0.4
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.004,
+              0.004,
+              0.04,
+              16
+            ]
+          }
+        }
+      ],
+      "assemblySequence": [
+        {
+          "action": "move",
+          "targetId": "flathead screw_02",
+          "from": {
+            "x": 0.36,
+            "y": 0.1,
+            "z": -0.4
+          },
+          "to": {
+            "x": 0.26,
+            "y": 0.0875,
+            "z": -0.4
+          },
+          "duration": 3
+        }
+      ],
+      "camera": {
+        "position": {
+          "x": 0.6725000000000001,
+          "y": 0.4225,
+          "z": 0.5885705080756888
+        },
+        "lookAt": {
+          "x": 0.16999999999999998,
+          "y": 0.0875,
+          "z": -0.08142949192431125
+        }
+      },
+      "lighting": {
+        "ambient": {
+          "intensity": 0.5
+        },
+        "directional": {
+          "intensity": 0.8,
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "productName": "TOMMARYD Underframe",
+    "category": "Table",
+    "productDimensions": {
+      "width": 1.3,
+      "height": 0.7,
+      "depth": 0.7
+    }
+  }
+}
