@@ -117,59 +117,65 @@ export function AssemblyChatbot({ manualId, currentStep, stepData }: AssemblyCha
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gray-800 text-white shadow-lg transition-all hover:bg-gray-700 hover:shadow-xl border border-gray-600"
+          className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-3xl border border-gray-700 hover:border-gray-500 group"
           aria-label="Open assembly assistant"
         >
-          <MessageCircle className="h-6 w-6" />
+          <MessageCircle className="h-7 w-7 transition-transform duration-300 group-hover:scale-110" />
+          <div className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-blue-500 animate-pulse"></div>
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 flex h-[500px] w-[380px] flex-col bg-gray-900 border border-gray-700 rounded-xl shadow-2xl">
+        <div className="fixed bottom-6 right-6 z-50 flex h-[520px] w-[400px] flex-col bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-600 rounded-2xl shadow-2xl backdrop-blur-sm animate-in slide-in-from-bottom-4 duration-300">
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-700 p-4 bg-gray-800">
-            <div className="flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-gray-300" />
+          <div className="flex items-center justify-between border-b border-gray-600 p-5 bg-gradient-to-r from-gray-800 to-gray-700 rounded-t-2xl">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600">
+                <MessageCircle className="h-5 w-5 text-white" />
+              </div>
               <div>
-                <h3 className="font-semibold text-white">Assembly Assistant</h3>
-                <p className="text-xs text-gray-400">
+                <h3 className="font-semibold text-white text-lg">Assembly Assistant</h3>
+                <p className="text-xs text-gray-300 bg-gray-700 px-2 py-1 rounded-full">
                   Step {currentStep + 1}
                 </p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded p-1 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors"
+              className="rounded-full p-2 hover:bg-gray-600 text-gray-300 hover:text-white transition-all duration-200 hover:scale-110"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 space-y-4 overflow-y-auto p-4 bg-gray-900">
+          <div className="flex-1 space-y-3 overflow-y-auto p-5 bg-gradient-to-b from-gray-900 to-gray-800">
             {messages.map((msg, i) => (
               <div
                 key={i}
-                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-in fade-in duration-300`}
               >
                 <div
-                  className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-lg ${
                     msg.role === "user"
-                      ? "bg-gray-700 text-white border border-gray-600"
-                      : "bg-gray-800 text-gray-100 border border-gray-700"
+                      ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white border border-blue-500"
+                      : "bg-gradient-to-br from-gray-700 to-gray-800 text-gray-100 border border-gray-600"
                   }`}
                 >
-                  <p className="whitespace-pre-wrap text-sm">{msg.content}</p>
+                  <p className="whitespace-pre-wrap text-sm leading-relaxed">{msg.content}</p>
                 </div>
               </div>
             ))}
             {loading && messages[messages.length - 1]?.role === "user" && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-2 rounded-lg bg-gray-800 border border-gray-700 px-4 py-2">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400"></div>
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400 animation-delay-200"></div>
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400 animation-delay-400"></div>
+              <div className="flex justify-start animate-in fade-in duration-300">
+                <div className="flex items-center gap-2 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 px-4 py-3 shadow-lg">
+                  <div className="flex space-x-1">
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-blue-400" style={{ animationDelay: '0ms' }}></div>
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-blue-400" style={{ animationDelay: '150ms' }}></div>
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-blue-400" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                  <span className="text-xs text-gray-400 ml-2">Thinking...</span>
                 </div>
               </div>
             )}
@@ -177,25 +183,28 @@ export function AssemblyChatbot({ manualId, currentStep, stepData }: AssemblyCha
           </div>
 
           {/* Input */}
-          <div className="border-t border-gray-700 p-4 bg-gray-800">
-            <div className="flex gap-2">
+          <div className="border-t border-gray-600 p-5 bg-gradient-to-r from-gray-800 to-gray-700 rounded-b-2xl">
+            <div className="flex gap-3">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about this step..."
-                className="flex-1 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
+                className="flex-1 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-400 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                 disabled={loading}
               />
-              <Button
+              <button
                 onClick={sendMessage}
                 disabled={loading || !input.trim()}
-                className="h-10 bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
+                className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 border border-blue-500"
               >
-                <Send className="h-4 w-4" />
-              </Button>
+                <Send className="h-5 w-5" />
+              </button>
             </div>
+            <p className="text-xs text-gray-400 mt-2 text-center">
+              Press Enter to send • Assembly help for step {currentStep + 1}
+            </p>
           </div>
         </div>
       )}
