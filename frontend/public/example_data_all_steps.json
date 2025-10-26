@@ -1003,187 +1003,63 @@
       "assemblySequence": [
         {
           "action": "move",
-          "targetId": "tabletop_01",
-          "from": {
-            "x": 0,
-            "y": 0.8,
-            "z": 0
-          },
-          "to": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "duration": 0.01
-        },
-        {
-          "action": "move",
-          "targetId": "rail_left",
-          "from": {
-            "x": -0.25,
-            "y": 0.7,
-            "z": 0
-          },
-          "to": {
-            "x": -0.25,
-            "y": 0.03,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "rail_right",
-          "from": {
-            "x": 0.25,
-            "y": 0.7,
-            "z": 0
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.03,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_01",
-          "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": -0.3
-          },
-          "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": -0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_01",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_02",
-          "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": 0
-          },
-          "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_02",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_03",
-          "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": 0.3
-          },
-          "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": 0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_03",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_04",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": -0.3
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": -0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_04",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_05",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": 0
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_05",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_06",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": 0.3
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": 0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_06",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
           "targetId": "corner_block_01",
-          "axis": "y",
-          "angle": 360,
-          "duration": 2
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_04",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_03",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_02",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
         }
       ],
       "camera": {
