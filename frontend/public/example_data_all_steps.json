@@ -331,6 +331,66 @@
       "assemblySequence": [
         {
           "action": "move",
+          "targetId": "corner_block_01",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_04",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_03",
+          "from": {
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "corner_block_02",
+          "from": {
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
+          },
+          "to": {
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
           "targetId": "tabletop_01",
           "from": {
             "x": 0,
@@ -1090,149 +1150,9 @@
     },
     {
       "stepId": 3,
-      "title": "Add Cross Support Bars",
-      "description": "Attach 4 cross support bars between the side rails to complete the frame structure.",
+      "title": "Add Edge Support Bars",
+      "description": "Attach 2 support bars along the front and back edges of the tabletop.",
       "parts": [
-        {
-          "id": "cross_bar_mid2",
-          "name": "Middle Cross Bar 2",
-          "type": "bar",
-          "quantity": 1,
-          "dimensions": {
-            "width": 0.5,
-            "depth": 0.03
-          },
-          "material": "metal",
-          "color": "#FFFFFF",
-          "position": {
-            "x": 0,
-            "y": -0.02,
-            "z": 0.15
-          },
-          "rotation": {
-            "x": 0,
-            "y": 1.5708,
-            "z": 0
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "geometry": {
-            "type": "box",
-            "args": [
-              0.03,
-              0.03,
-              0.4
-            ]
-          }
-        },
-        {
-          "id": "cross_bar_mid1",
-          "name": "Middle Cross Bar 1",
-          "type": "bar",
-          "quantity": 1,
-          "dimensions": {
-            "width": 0.5,
-            "depth": 0.03
-          },
-          "material": "metal",
-          "color": "#FFFFFF",
-          "position": {
-            "x": 0,
-            "y": -0.02,
-            "z": -0.15
-          },
-          "rotation": {
-            "x": 0,
-            "y": 1.5708,
-            "z": 0
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "geometry": {
-            "type": "box",
-            "args": [
-              0.03,
-              0.03,
-              0.4
-            ]
-          }
-        },
-        {
-          "id": "cross_bar_back",
-          "name": "Back Cross Bar",
-          "type": "bar",
-          "quantity": 1,
-          "dimensions": {
-            "width": 0.5,
-            "depth": 0.03
-          },
-          "material": "metal",
-          "color": "#FFFFFF",
-          "position": {
-            "x": 0,
-            "y": -0.02,
-            "z": 0.45
-          },
-          "rotation": {
-            "x": 0,
-            "y": 1.5708,
-            "z": 0
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "geometry": {
-            "type": "box",
-            "args": [
-              0.03,
-              0.03,
-              0.4
-            ]
-          }
-        },
-        {
-          "id": "cross_bar_front",
-          "name": "Front Cross Bar",
-          "type": "bar",
-          "quantity": 1,
-          "dimensions": {
-            "width": 0.5,
-            "depth": 0.03
-          },
-          "material": "metal",
-          "color": "#FFFFFF",
-          "position": {
-            "x": 0,
-            "y": -0.02,
-            "z": -0.45
-          },
-          "rotation": {
-            "x": 0,
-            "y": 1.5708,
-            "z": 0
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "geometry": {
-            "type": "box",
-            "args": [
-              0.03,
-              0.03,
-              0.4
-            ]
-          }
-        },
         {
           "id": "corner_block_04",
           "name": "Corner Block",
@@ -1245,14 +1165,14 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": 0.45,
-            "y": -0.01,
-            "z": 0.45
+            "x": 0.21,
+            "y": 0.03,
+            "z": -0.48
           },
           "rotation": {
             "x": 0,
-            "y": 1.5708,
-            "z": 1
+            "y": 1.05,
+            "z": 0
           },
           "scale": {
             "x": 1,
@@ -1280,14 +1200,14 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": 0.45,
-            "y": -0.01,
-            "z": -0.45
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
           },
           "rotation": {
             "x": 0,
-            "y": 1.5708,
-            "z": 1
+            "y": 1.05,
+            "z": 0
           },
           "scale": {
             "x": 1,
@@ -1315,14 +1235,14 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": -0.45,
-            "y": -0.01,
-            "z": 0.45
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
           },
           "rotation": {
             "x": 0,
-            "y": 1.5708,
-            "z": 1
+            "y": -1.05,
+            "z": 0
           },
           "scale": {
             "x": 1,
@@ -1350,14 +1270,14 @@
           "material": "plastic",
           "color": "#E0E0E0",
           "position": {
-            "x": -0.45,
-            "y": -0.01,
-            "z": -0.45
+            "x": -0.21,
+            "y": 0.03,
+            "z": -0.48
           },
           "rotation": {
             "x": 0,
-            "y": 1.5708,
-            "z": 1
+            "y": -1.05,
+            "z": 0
           },
           "scale": {
             "x": 1,
@@ -1698,202 +1618,70 @@
       "assemblySequence": [
         {
           "action": "move",
-          "targetId": "tabletop_01",
+          "targetId": "corner_block_01",
           "from": {
-            "x": 0,
-            "y": 0.8,
-            "z": 0
+            "x": -0.05,
+            "y": 0.065,
+            "z": -0.48
           },
           "to": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "rail_left",
-          "from": {
-            "x": -0.25,
-            "y": 0.7,
-            "z": 0
-          },
-          "to": {
-            "x": -0.25,
+            "x": -0.21,
             "y": 0.03,
-            "z": 0
+            "z": -0.48
           },
           "duration": 1.5
         },
         {
           "action": "move",
-          "targetId": "rail_right",
+          "targetId": "corner_block_04",
           "from": {
-            "x": 0.25,
-            "y": 0.7,
-            "z": 0
+            "x": 0.05,
+            "y": 0.065,
+            "z": -0.48
           },
           "to": {
-            "x": 0.25,
+            "x": 0.21,
             "y": 0.03,
-            "z": 0
+            "z": -0.48
           },
           "duration": 1.5
         },
         {
           "action": "move",
-          "targetId": "bracket_01",
+          "targetId": "corner_block_03",
           "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": -0.3
+            "x": -0.05,
+            "y": 0.065,
+            "z": 0.48
           },
           "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": -0.3
+            "x": -0.21,
+            "y": 0.03,
+            "z": 0.48
           },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_01",
-          "axis": "y",
-          "angle": 720,
           "duration": 1.5
         },
         {
           "action": "move",
-          "targetId": "bracket_02",
+          "targetId": "corner_block_02",
           "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": 0
+            "x": 0.05,
+            "y": 0.065,
+            "z": 0.48
           },
           "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": 0
+            "x": 0.21,
+            "y": 0.03,
+            "z": 0.48
           },
           "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_02",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_03",
-          "from": {
-            "x": -0.25,
-            "y": 0.6,
-            "z": 0.3
-          },
-          "to": {
-            "x": -0.25,
-            "y": 0.045,
-            "z": 0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_03",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_04",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": -0.3
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": -0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_04",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_05",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": 0
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": 0
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_05",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "bracket_06",
-          "from": {
-            "x": 0.25,
-            "y": 0.6,
-            "z": 0.3
-          },
-          "to": {
-            "x": 0.25,
-            "y": 0.045,
-            "z": 0.3
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "rotate",
-          "targetId": "bracket_06",
-          "axis": "y",
-          "angle": 720,
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "cross_bar_front",
-          "from": {
-            "x": 0,
-            "y": 0.1,
-            "z": -0.45
-          },
-          "to": {
-            "x": 0,
-            "y": -0.02,
-            "z": -0.45
-          },
-          "duration": 2
         }
       ],
       "camera": {
         "position": {
-          "x": 1,
-          "y": 0.6,
-          "z": 1.3
+          "x": 0.9,
+          "y": 0.5,
+          "z": 1.1
         },
         "lookAt": {
           "x": 0,
