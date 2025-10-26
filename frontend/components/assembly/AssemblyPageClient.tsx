@@ -8,6 +8,7 @@ import { StepList } from "./StepList";
 import { PartsList } from "./PartsList";
 import { ToolsList } from "./ToolsList";
 import { StepNavigation } from "./StepNavigation";
+import { AssemblyChatbot } from "./AssemblyChatbot";
 
 const AssemblyViewer = dynamic(() => import("@components/viewer/AssemblyViewer"), {
   ssr: false,
@@ -81,6 +82,18 @@ export function AssemblyPageClient({ manualId }: { manualId: string }) {
           </div>
         </section>
       </div>
+      
+      {/* Assembly Chatbot - Floating in bottom-right */}
+      <AssemblyChatbot
+        manualId={manualId}
+        currentStep={currentStep}
+        stepData={{
+          title: step.title,
+          description: step.description,
+          parts: step.parts,
+          tools: step.tools,
+        }}
+      />
     </div>
   );
 }

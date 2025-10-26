@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { CumulativeScene } from '@/components/viewer/CumulativeScene'
+import { AssemblyChatbot } from '@/components/assembly/AssemblyChatbot'
 
 export default function AssemblyPreviewPage() {
   const searchParams = useSearchParams()
@@ -60,6 +61,7 @@ export default function AssemblyPreviewPage() {
   }
   
   const steps = assemblyData.steps
+  const currentStepData = steps[currentStep]
 
   return (
     <div className="w-full h-screen">
@@ -69,6 +71,20 @@ export default function AssemblyPreviewPage() {
         onStepChange={setCurrentStep}
         height="100vh"
       />
+      
+      {/* Assembly Chatbot - Floating in bottom-right */}
+      {currentStepData && (
+        <AssemblyChatbot
+          manualId="tommaryd-preview"
+          currentStep={currentStep}
+          stepData={{
+            title: currentStepData.title || `Step ${currentStep + 1}`,
+            description: currentStepData.description || '',
+            parts: currentStepData.parts || [],
+            tools: currentStepData.tools || [],
+          }}
+        />
+      )}
     </div>
   )
 }
