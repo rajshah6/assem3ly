@@ -1746,7 +1746,7 @@
     {
       "stepId": 4,
       "title": "Attach Table Legs",
-      "description": "Attach the 4 table legs to the corner blocks at each corner of the frame.",
+      "description": "Attach the 4 table legs and the plastic feet to the corner blocks at each corner of the frame.",
       "parts": [
         {
           "id": "foot_01",
@@ -2719,8 +2719,8 @@
     },
     {
       "stepId": 5,
-      "title": "Attach Plastic Feet",
-      "description": "Attach the plastic feet to the bottom of each leg to protect the floor.",
+      "title": "Flip and Enjoy!",
+      "description": "Flip the table over and enjoy the newest addition to your home!",
       "parts": [
         {
           "id": "foot_01",

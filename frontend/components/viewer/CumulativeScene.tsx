@@ -246,7 +246,6 @@ export function CumulativeScene({
         <div className="text-sm space-y-1 mb-4">
           <p>🖱️ Click and drag to rotate</p>
           <p>🔍 Scroll to zoom</p>
-          <p>⌨️ Right-click to pan</p>
         </div>
         <button
           onClick={handleReplay}
@@ -258,7 +257,7 @@ export function CumulativeScene({
       </div>
 
       {/* Parts Count */}
-      <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
+      <div className="absolute bottom-20 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
         <h3 className="font-bold mb-2">Parts in Assembly</h3>
         <div className="text-sm space-y-1">
           <p>
@@ -268,10 +267,6 @@ export function CumulativeScene({
           <p>
             <span className="text-gray-400">New in this step:</span>{" "}
             {newPartsInCurrentStep.length}
-          </p>
-          <p>
-            <span className="text-gray-400">Animations:</span>{" "}
-            {currentStepData.assemblySequence.length}
           </p>
         </div>
       </div>

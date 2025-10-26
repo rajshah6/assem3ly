@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Manual } from "@lib/api-client";
 import { Badge } from "@components/ui/primitives";
+import { LoaderOne } from "@components/ui/loader";
 
 const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -25,12 +26,18 @@ const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
 
 export function LibraryCard({ manual }: { manual: Manual }) {
   const [hovered, setHovered] = React.useState(false);
+  const [showLoader, setShowLoader] = React.useState(false);
   const router = useRouter();
 
   // Handle click - only TOMMARYD Table is available
   const handleClick = (e: React.MouseEvent) => {
     if (manual.id === "product-0") {
-      router.push("/assembly-preview");
+      // Show loader for 5 seconds before navigating
+      setShowLoader(true);
+      setTimeout(() => {
+        setShowLoader(false);
+        router.push("/assembly-preview");
+      }, 5000);
     } else {
       e.preventDefault();
       alert("You've reached your Gemini API usage limit!");
@@ -38,12 +45,14 @@ export function LibraryCard({ manual }: { manual: Manual }) {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group/canvas-card relative mx-auto flex h-[20rem] w-full max-w-sm cursor-pointer items-center justify-center border border-black/[0.2] p-4 dark:border-white/[0.2]"
-    >
+    <>
+      {showLoader && <LoaderOne />}
+      <div
+        onClick={handleClick}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="group/canvas-card relative mx-auto flex h-[20rem] w-full max-w-sm cursor-pointer items-center justify-center border border-black/[0.2] p-4 dark:border-white/[0.2]"
+      >
       {/* Corner icons */}
       <Icon className="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
@@ -95,5 +104,6 @@ export function LibraryCard({ manual }: { manual: Manual }) {
         </Badge>
       </div>
     </div>
+    </>
   );
 }

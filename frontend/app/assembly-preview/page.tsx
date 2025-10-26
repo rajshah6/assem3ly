@@ -1,10 +1,18 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { CumulativeScene } from '@/components/viewer/CumulativeScene'
 
 export default function AssemblyPreviewPage() {
-  const [currentStep, setCurrentStep] = useState(0)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  
+  // Initialize currentStep from URL query param or default to 0
+  const [currentStep, setCurrentStep] = useState(() => {
+    const stepParam = searchParams.get('step')
+    return stepParam ? parseInt(stepParam, 10) : 0
+  })
   const [assemblyData, setAssemblyData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
@@ -20,6 +28,14 @@ export default function AssemblyPreviewPage() {
         setLoading(false)
       })
   }, [])
+
+  // Update URL when step changes
+  useEffect(() => {
+    if (assemblyData && assemblyData.steps) {
+      const validStep = Math.max(0, Math.min(currentStep, assemblyData.steps.length - 1))
+      router.replace(`/assembly-preview?step=${validStep}`, { scroll: false })
+    }
+  }, [currentStep, assemblyData, router])
 
   if (loading) {
     return (

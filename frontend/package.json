@@ -11,10 +11,11 @@
   "dependencies": {
     "@radix-ui/react-hover-card": "^1.1.15",
     "@radix-ui/react-tabs": "^1.1.13",
-    "class-variance-authority": "^0.7.1",
     "@react-three/drei": "^10.7.6",
     "@types/three": "^0.180.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",
     "motion": "^12.23.24",
     "next": "16.0.0",
