@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, Grid } from "@react-three/drei";
 import { AnimatedPart } from "./AnimatedPart";
+import { ShimmerButton } from "@components/ui/shimmer-button";
 
 interface Part {
   id: string;
@@ -139,10 +140,21 @@ export function CumulativeScene({
 
   return (
     <div
-      className="relative w-full bg-gradient-to-b from-gray-900 to-gray-800"
+      className="relative w-full bg-white"
       style={{ height }}
     >
-      <Canvas shadows key={animationKey}>
+      <Canvas 
+        shadows 
+        key={animationKey}
+        gl={{ 
+          alpha: false,
+          preserveDrawingBuffer: true,
+        }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#ffffff', 1)
+        }}
+        style={{ background: 'white' }}
+      >
         {/* Camera from current step */}
         <PerspectiveCamera
           makeDefault
@@ -177,10 +189,10 @@ export function CumulativeScene({
           args={[2, 2]}
           cellSize={0.05}
           cellThickness={0.5}
-          cellColor="#6b7280"
+          cellColor="#cccccc"
           sectionSize={0.2}
           sectionThickness={1}
-          sectionColor="#9ca3af"
+          sectionColor="#999999"
           fadeDistance={3}
           fadeStrength={1}
           followCamera={false}
@@ -232,38 +244,62 @@ export function CumulativeScene({
       </Canvas>
 
       {/* UI Overlay */}
-      <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg max-w-sm">
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="text-xl font-bold">Step {currentStepData.stepId}</h2>
-          <span className="text-sm text-gray-300">
-            {currentStep + 1} / {steps.length}
-          </span>
-        </div>
+      <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg max-w-[350px]">
+        <h2 className="text-xl font-bold mb-2">Step {currentStepData.stepId}</h2>
         <h3 className="text-lg font-semibold mb-1">{currentStepData.title}</h3>
         <p className="text-sm text-gray-300 mb-4">
           {currentStepData.description}
         </p>
-        <button
+        <ShimmerButton
           onClick={handleReplay}
-          className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+          className="shadow-2xl"
         >
-          Replay Step
-        </button>
+          <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white">
+            Replay Step
+          </span>
+        </ShimmerButton>
       </div>
 
-      {/* Parts Count */}
-      <div className="absolute bottom-20 left-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
+      {/* Parts Count - Top Right */}
+      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg">
         <h3 className="font-bold mb-2">Parts in Assembly</h3>
         <div className="text-sm space-y-1">
           <p>
-            <span className="text-gray-400">Total parts:</span>{" "}
+            <span className="text-white">Total parts:</span>{" "}
             {allParts.length}
           </p>
           <p>
-            <span className="text-gray-400">New in this step:</span>{" "}
+            <span className="text-white">New in this step:</span>{" "}
             {newPartsInCurrentStep.length}
           </p>
         </div>
+      </div>
+
+      {/* Navigation Buttons - Bottom Center */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-3">
+        <ShimmerButton
+          onClick={() => onStepChange && onStepChange(Math.max(0, currentStep - 1))}
+          disabled={currentStep === 0}
+          className="shadow-2xl"
+        >
+          <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white">
+            ← Previous
+          </span>
+        </ShimmerButton>
+        
+        <div className="px-4 py-3 bg-black/50 backdrop-blur-sm text-white rounded-lg font-semibold">
+          {currentStep + 1} / {steps.length}
+        </div>
+        
+        <ShimmerButton
+          onClick={() => onStepChange && onStepChange(Math.min(steps.length - 1, currentStep + 1))}
+          disabled={currentStep === steps.length - 1}
+          className="shadow-2xl"
+        >
+          <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white">
+            Next →
+          </span>
+        </ShimmerButton>
       </div>
     </div>
   );

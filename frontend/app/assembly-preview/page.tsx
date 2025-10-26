@@ -62,44 +62,13 @@ export default function AssemblyPreviewPage() {
   const steps = assemblyData.steps
 
   return (
-    <div className="w-full h-screen flex flex-col">
-      {/* Step Navigation Bar */}
-      <div className="bg-gray-900 text-white p-4 flex items-center justify-between shadow-lg z-10">
-        <div className="flex items-center gap-4">
-          <h1 className="text-lg font-bold">Assembly Preview</h1>
-          <div className="text-sm text-gray-400">
-            Step {currentStep + 1} of {steps.length}
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-            disabled={currentStep === 0}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors"
-          >
-            ← Previous
-          </button>
-          
-          <button
-            onClick={() => setCurrentStep(Math.min(steps.length - 1, currentStep + 1))}
-            disabled={currentStep === steps.length - 1}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors"
-          >
-            Next →
-          </button>
-        </div>
-      </div>
-
-      {/* 3D Viewer */}
-      <div className="flex-1">
-        <CumulativeScene 
-          steps={steps}
-          currentStep={currentStep}
-          onStepChange={setCurrentStep}
-          height="100%"
-        />
-      </div>
+    <div className="w-full h-screen">
+      <CumulativeScene 
+        steps={steps}
+        currentStep={currentStep}
+        onStepChange={setCurrentStep}
+        height="100vh"
+      />
     </div>
   )
 }

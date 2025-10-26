@@ -130,3 +130,24 @@
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Shimmer button animations */
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--shimmer-duration) ease-in-out infinite alternate;
+}
+
+.animate-spin-around {
+  animation: spin-around var(--shimmer-duration) linear infinite;
+}
