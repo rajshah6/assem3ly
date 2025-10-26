@@ -1167,7 +1167,7 @@
           "position": {
             "x": 0,
             "y": 0.03,
-            "z": -0.48
+            "z": -0.8
           },
           "rotation": {
             "x": 0,
@@ -1202,7 +1202,7 @@
           "position": {
             "x": 0,
             "y": 0.03,
-            "z": 0.48
+            "z": 0.8
           },
           "rotation": {
             "x": 0,
@@ -1687,7 +1687,34 @@
       ],
       "assemblySequence": [
         {
-          
+          "action": "move",
+          "targetId": "edge_support_bar_01",
+          "from": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.8
+          },
+          "to": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "duration": 1.5
+        },
+        {
+          "action": "move",
+          "targetId": "edge_support_bar_02",
+          "from": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.8
+          },
+          "to": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "duration": 1.5
         }
       ],
       "camera": {
