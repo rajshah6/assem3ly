@@ -243,15 +243,10 @@ export function CumulativeScene({
         <p className="text-sm text-gray-300 mb-4">
           {currentStepData.description}
         </p>
-        <div className="text-sm space-y-1 mb-4">
-          <p>🖱️ Click and drag to rotate</p>
-          <p>🔍 Scroll to zoom</p>
-        </div>
         <button
           onClick={handleReplay}
           className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
         >
-          <span>🔄</span>
           Replay Step
         </button>
       </div>
