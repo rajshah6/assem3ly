@@ -1,0 +1,127 @@
+{
+  "stepId": 8,
+  "title": "Adjusting table leg height",
+  "description": "Adjust the height of the table legs by rotating the foot to ensure the table is level and stable on the floor.",
+  "parts": [
+    {
+      "id": "leg_01",
+      "name": "Table leg",
+      "type": "leg",
+      "quantity": 4,
+      "dimensions": {
+        "width": 0.7,
+        "depth": 0.05
+      },
+      "material": "metal",
+      "color": "#C0C0C0",
+      "position": {
+        "x": 0.815,
+        "y": 0.125,
+        "z": 0.24964101615137751
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "cylinder",
+        "args": [
+          0.02,
+          0.02,
+          0.7,
+          16
+        ]
+      }
+    },
+    {
+      "id": "foot_02",
+      "name": "Adjustable foot",
+      "type": "foot",
+      "quantity": 4,
+      "dimensions": {
+        "width": 0.03,
+        "depth": 0.03
+      },
+      "material": "plastic",
+      "color": "#F0F0F0",
+      "position": {
+        "x": 0.965,
+        "y": 0.09999999999999999,
+        "z": 0.24964101615137751
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "box",
+        "args": [
+          0.03,
+          0.05,
+          0.03
+        ]
+      }
+    }
+  ],
+  "assemblySequence": [
+    {
+      "action": "rotate",
+      "targetId": "foot_02",
+      "axis": "y",
+      "angle": 720,
+      "duration": 2
+    },
+    {
+      "action": "move",
+      "targetId": "leg_01",
+      "from": {
+        "x": 0.9149999999999999,
+        "y": 0.1,
+        "z": 0.24964101615137751
+      },
+      "to": {
+        "x": 0.815,
+        "y": 0.125,
+        "z": 0.24964101615137751
+      },
+      "duration": 2.5
+    }
+  ],
+  "camera": {
+    "position": {
+      "x": 0.86375,
+      "y": 0.41125,
+      "z": 0.8596410161513774
+    },
+    "lookAt": {
+      "x": 0.40624999999999994,
+      "y": 0.10624999999999998,
+      "z": 0.24964101615137751
+    }
+  },
+  "lighting": {
+    "ambient": {
+      "intensity": 0.5
+    },
+    "directional": {
+      "intensity": 0.8,
+      "position": {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+import pdfProcessorRoute from './api/pdf-processor.route'
 import routes from './api/routes'
 
 const app = express()
@@ -16,6 +17,7 @@ app.get('/health', (req, res) => {
 
 // API routes
 app.use('/api', routes)
+app.use('/api', pdfProcessorRoute)
 
 // Error handler
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -33,5 +35,7 @@ app.listen(PORT, () => {
   console.log('🌐 API: http://localhost:' + PORT + '/api')
   console.log('💚 Health: http://localhost:' + PORT + '/health')
   console.log('🚀 '.repeat(30) + '\n')
+  console.log(`📡 API available at http://localhost:${PORT}/api`)
+  console.log(`🔑 Gemini API Key: ${process.env.GEMINI_API_KEY ? '✅ Set' : '❌ Not set'}`)
 })
 

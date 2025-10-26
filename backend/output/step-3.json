@@ -1,0 +1,171 @@
+{
+  "stepId": 3,
+  "title": "Attach Rails to Tabletop",
+  "description": "Attach the support rails to the tabletop using screws and washers by aligning the holes and tightening.",
+  "parts": [
+    {
+      "id": "rail_01",
+      "name": "Support Rail",
+      "type": "rail",
+      "quantity": 2,
+      "dimensions": {
+        "width": 1,
+        "depth": 0.05
+      },
+      "material": "metal",
+      "color": "#C0C0C0",
+      "position": {
+        "x": -0.39499999999999996,
+        "y": 0.19999999999999998,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "box",
+        "args": [
+          1,
+          0.05,
+          0.05
+        ]
+      }
+    },
+    {
+      "id": "screw_02",
+      "name": "Flathead Screw",
+      "type": "screw",
+      "quantity": 6,
+      "dimensions": {
+        "width": 0.02,
+        "depth": 0.01
+      },
+      "material": "metal",
+      "color": "#777777",
+      "position": {
+        "x": -0.25,
+        "y": 0.175,
+        "z": 9.797174393178826e-18
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "cylinder",
+        "args": [
+          0.004,
+          0.004,
+          0.04,
+          16
+        ]
+      }
+    },
+    {
+      "id": "washer_03",
+      "name": "Washer",
+      "type": "washer",
+      "quantity": 6,
+      "dimensions": {
+        "width": 0.01,
+        "depth": 0.001
+      },
+      "material": "metal",
+      "color": "#AAAAAA",
+      "position": {
+        "x": -0.08999999999999998,
+        "y": 0.175,
+        "z": -1.959434878635765e-17
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "torus",
+        "args": [
+          0.01,
+          0.002,
+          16,
+          32
+        ]
+      }
+    }
+  ],
+  "assemblySequence": [
+    {
+      "action": "move",
+      "targetId": "rail_01",
+      "from": {
+        "x": -0.29499999999999993,
+        "y": 0.1,
+        "z": 0
+      },
+      "to": {
+        "x": -0.39499999999999996,
+        "y": 0.19999999999999998,
+        "z": 0
+      },
+      "duration": 2
+    },
+    {
+      "action": "move",
+      "targetId": "screw_02",
+      "from": {
+        "x": -0.15,
+        "y": 0.1,
+        "z": 9.797174393178826e-18
+      },
+      "to": {
+        "x": -0.25,
+        "y": 0.175,
+        "z": 9.797174393178826e-18
+      },
+      "duration": 3
+    }
+  ],
+  "camera": {
+    "position": {
+      "x": 0.13750000000000004,
+      "y": 0.3466666666666667,
+      "z": 0.46
+    },
+    "lookAt": {
+      "x": -0.2075,
+      "y": 0.11666666666666667,
+      "z": -1.6328623988631376e-18
+    }
+  },
+  "lighting": {
+    "ambient": {
+      "intensity": 0.5
+    },
+    "directional": {
+      "intensity": 0.8,
+      "position": {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    }
+  }
+}

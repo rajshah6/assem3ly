@@ -1,0 +1,120 @@
+{
+  "stepId": 9,
+  "title": "Attach Brackets",
+  "description": "Attach the 2 L-brackets to the table frame using the screw and Allen key, then attach the other two brackets in the same way.",
+  "parts": [
+    {
+      "id": "bracket_01",
+      "name": "L-Bracket",
+      "type": "bracket",
+      "quantity": 2,
+      "dimensions": {
+        "width": 0.05,
+        "depth": 0.03
+      },
+      "material": "metal",
+      "color": "#C0C0C0",
+      "position": {
+        "x": 1.145,
+        "y": 0.09999999999999999,
+        "z": 0.24964101615137751
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "box",
+        "args": [
+          0.05,
+          0.05,
+          0.03
+        ]
+      }
+    },
+    {
+      "id": "screw_02",
+      "name": "Screw",
+      "type": "screw",
+      "quantity": 2,
+      "dimensions": {
+        "width": 0.01,
+        "depth": 0.01
+      },
+      "material": "metal",
+      "color": "#777777",
+      "position": {
+        "x": 1.3450000000000002,
+        "y": 0.09999999999999999,
+        "z": 0.2496410161513775
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "cylinder",
+        "args": [
+          0.004,
+          0.004,
+          0.04,
+          16
+        ]
+      }
+    }
+  ],
+  "assemblySequence": [
+    {
+      "action": "move",
+      "targetId": "screw_02",
+      "from": {
+        "x": 1.4450000000000003,
+        "y": 0.1,
+        "z": 0.2496410161513775
+      },
+      "to": {
+        "x": 1.3450000000000002,
+        "y": 0.09999999999999999,
+        "z": 0.2496410161513775
+      },
+      "duration": 3
+    }
+  ],
+  "camera": {
+    "position": {
+      "x": 1.13875,
+      "y": 0.42,
+      "z": 0.8896410161513775
+    },
+    "lookAt": {
+      "x": 0.6587500000000001,
+      "y": 0.09999999999999999,
+      "z": 0.24964101615137751
+    }
+  },
+  "lighting": {
+    "ambient": {
+      "intensity": 0.5
+    },
+    "directional": {
+      "intensity": 0.8,
+      "position": {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    }
+  }
+}
