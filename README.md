@@ -1,8 +1,10 @@
 # assembl3D 🛠️
 
+🚀 Copilot for Assembly
+
 **AI-powered assembly manual finder with 3D visualization**
 
-Built for the Cal Hacks 🏆
+Built for Cal Hacks 🏆
 
 ## 🎯 What It Does
 
