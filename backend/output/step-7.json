@@ -1,0 +1,156 @@
+{
+  "stepId": 7,
+  "title": "Attach brackets to legs",
+  "description": "Attach the brackets to the underside of the tabletop frame using a screw and a bolt, then use the Allen key to tighten it.",
+  "parts": [
+    {
+      "id": "l-bracket_01",
+      "name": "Bracket",
+      "type": "l-bracket",
+      "quantity": 2,
+      "dimensions": {
+        "width": 0.05,
+        "depth": 0.03
+      },
+      "material": "Metal",
+      "color": "#C0C0C0",
+      "position": {
+        "x": 0.66,
+        "y": 0.09999999999999999,
+        "z": 0.24964101615137751
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "box",
+        "args": [
+          0.05,
+          0.05,
+          0.03
+        ]
+      }
+    },
+    {
+      "id": "flathead screw_02",
+      "name": "Screw",
+      "type": "flathead screw",
+      "quantity": 2,
+      "dimensions": {
+        "width": 0.02,
+        "depth": 0.01
+      },
+      "material": "Metal",
+      "color": "#777777",
+      "position": {
+        "x": 0.7000000000000001,
+        "y": 0.09999999999999999,
+        "z": 0.24964101615137751
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "cylinder",
+        "args": [
+          0.004,
+          0.004,
+          0.04,
+          16
+        ]
+      }
+    },
+    {
+      "id": "bolt_03",
+      "name": "Bolt",
+      "type": "bolt",
+      "quantity": 2,
+      "dimensions": {
+        "width": 0.01,
+        "depth": 0.01
+      },
+      "material": "Metal",
+      "color": "#C0C0C0",
+      "position": {
+        "x": 0.86,
+        "y": 0.09999999999999999,
+        "z": 0.2496410161513775
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "geometry": {
+        "type": "cylinder",
+        "args": [
+          0.004,
+          0.004,
+          0.04,
+          16
+        ]
+      }
+    }
+  ],
+  "assemblySequence": [
+    {
+      "action": "move",
+      "targetId": "bolt_03",
+      "from": {
+        "x": 0.96,
+        "y": 0.1,
+        "z": 0.2496410161513775
+      },
+      "to": {
+        "x": 0.86,
+        "y": 0.09999999999999999,
+        "z": 0.2496410161513775
+      },
+      "duration": 2.5
+    }
+  ],
+  "camera": {
+    "position": {
+      "x": 0.7200000000000001,
+      "y": 0.39,
+      "z": 0.8296410161513776
+    },
+    "lookAt": {
+      "x": 0.28500000000000003,
+      "y": 0.09999999999999999,
+      "z": 0.24964101615137751
+    }
+  },
+  "lighting": {
+    "ambient": {
+      "intensity": 0.5
+    },
+    "directional": {
+      "intensity": 0.8,
+      "position": {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    }
+  }
+}
