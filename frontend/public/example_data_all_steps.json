@@ -1154,6 +1154,76 @@
       "description": "Attach 2 support bars along the front and back edges of the tabletop.",
       "parts": [
         {
+          "id": "edge_support_bar_01",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": -0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
+          "id": "edge_support_bar_02",
+          "name": "Edge Support Bar",
+          "type": "bar",
+          "quantity": 2,
+          "dimensions": {
+            "width": 3.015,
+            "depth": 0.127999999999999997
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0,
+            "y": 0.03,
+            "z": 0.48
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "box",
+            "args": [
+              0.515,
+              0.027999999999999997,
+              0.04
+            ]
+          }
+        },
+        {
           "id": "corner_block_04",
           "name": "Corner Block",
           "type": "block",
@@ -1617,64 +1687,7 @@
       ],
       "assemblySequence": [
         {
-          "action": "move",
-          "targetId": "corner_block_01",
-          "from": {
-            "x": -0.05,
-            "y": 0.065,
-            "z": -0.48
-          },
-          "to": {
-            "x": -0.21,
-            "y": 0.03,
-            "z": -0.48
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "corner_block_04",
-          "from": {
-            "x": 0.05,
-            "y": 0.065,
-            "z": -0.48
-          },
-          "to": {
-            "x": 0.21,
-            "y": 0.03,
-            "z": -0.48
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "corner_block_03",
-          "from": {
-            "x": -0.05,
-            "y": 0.065,
-            "z": 0.48
-          },
-          "to": {
-            "x": -0.21,
-            "y": 0.03,
-            "z": 0.48
-          },
-          "duration": 1.5
-        },
-        {
-          "action": "move",
-          "targetId": "corner_block_02",
-          "from": {
-            "x": 0.05,
-            "y": 0.065,
-            "z": 0.48
-          },
-          "to": {
-            "x": 0.21,
-            "y": 0.03,
-            "z": 0.48
-          },
-          "duration": 1.5
+          
         }
       ],
       "camera": {
