@@ -91,12 +91,12 @@ npx ts-node brightdata/test.ts
 📐 Dimensions: { width: '31 1/2 "', height: '79 1/2 "', depth: '11 "' }
 📄 PDF URL: https://www.ikea.com/us/en/assembly_instructions/billy-bookcase-white__AA-2289108-3-100.pdf
 📥 Downloading PDF with Bright Data Web Unlocker...
-💾 PDF saved to: /Users/ajith/Projects/assem3ly/backend/data/pdfs/20522046.pdf
+💾 PDF saved to: /Users/ajith/Projects/assembl3D/backend/data/pdfs/20522046.pdf
 
 ✅ SUCCESS!
 Product Name: BILLY Bookcase
 Product ID: 20522046
-PDF Path: /Users/ajith/Projects/assem3ly/backend/data/pdfs/20522046.pdf
+PDF Path: /Users/ajith/Projects/assembl3D/backend/data/pdfs/20522046.pdf
 Time taken: 8.2 seconds
 ```
 

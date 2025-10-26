@@ -16,7 +16,7 @@ export function LandingSwitcher() {
   if (active === "home") {
     return (
       <div className="flex flex-col items-center text-center">
-        <h1 className="text-6xl font-extrabold tracking-tight text-black md:text-7xl">assem3ly</h1>
+        <h1 className="text-6xl font-extrabold tracking-tight text-black md:text-7xl">assembl3D</h1>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-black/50">interactive assembly manuals</p>
         <div className="mt-12 w-full">
           <TiltCard>
@@ -72,7 +72,7 @@ export function LandingSwitcher() {
         {/* Header - only show when search is empty */}
         {!searchQ.trim() && (
           <div className="mb-8 text-center">
-            <h1 className="text-6xl font-extrabold tracking-tight text-black md:text-7xl">assem3ly</h1>
+            <h1 className="text-6xl font-extrabold tracking-tight text-black md:text-7xl">assembl3D</h1>
             <p className="mt-3 text-sm uppercase tracking-[0.18em] text-black/50">interactive assembly manuals</p>
           </div>
         )}

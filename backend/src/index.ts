@@ -12,7 +12,7 @@ app.use(express.json())
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'assem3ly-backend' })
+  res.json({ status: 'ok', service: 'assembl3D-backend' })
 })
 
 // API routes
@@ -30,7 +30,7 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 app.listen(PORT, () => {
   console.log('\n' + '🚀 '.repeat(30))
-  console.log('🚀 assem3ly backend running')
+  console.log('🚀 assembl3D backend running')
   console.log('📍 Server: http://localhost:' + PORT)
   console.log('🌐 API: http://localhost:' + PORT + '/api')
   console.log('💚 Health: http://localhost:' + PORT + '/health')

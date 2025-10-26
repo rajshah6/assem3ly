@@ -2,12 +2,12 @@
 alwaysApply: true
 ---
 
-# assem3ly - File Structure & Organization
+# assembl3D - File Structure & Organization
 
 ## 📁 Complete Directory Structure
 
 ```
-assem3ly/
+assembl3D/
 │
 ├── .cursor/
 │   └── rules/                          # Cursor AI rules

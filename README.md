@@ -1,4 +1,4 @@
-# assem3ly 🛠️
+# assembl3D 🛠️
 
 **AI-powered assembly manual finder with 3D visualization**
 
@@ -42,7 +42,7 @@ Frontend will run on: **http://localhost:3000**
 ## 📁 Project Structure
 
 ```
-assem3ly/
+assembl3D/
 ├── backend/              # Express API
 │   ├── src/
 │   │   ├── api/         # API routes

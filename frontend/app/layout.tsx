@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "assem3ly",
+  title: "assembl3D",
   description: "Interactive IKEA assembly guides",
 };
 
@@ -33,7 +33,7 @@ export default function RootLayout({
               <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4">
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-6 w-6 items-center justify-center rounded bg-black text-white">A</span>
-                  <span className="text-sm font-semibold tracking-tight text-black">assem3ly</span>
+                  <span className="text-sm font-semibold tracking-tight text-black">assembl3D</span>
                 </div>
                 <nav className="flex items-center gap-2 text-sm text-black">
                   <HeaderTabs />

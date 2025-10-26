@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# assem3ly - Project Overview
+# assembl3D - Project Overview
 
 ## Mission
 A 24-hour hackathon project that scrapes IKEA assembly manuals using Bright Data, processes them with Google Gemini AI, and displays them as interactive 3D guides.

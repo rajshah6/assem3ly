@@ -14,7 +14,7 @@ export function MainTabs() {
       content: (
         <div className="relative h-full w-full overflow-hidden rounded-2xl bg-black p-6 text-white">
           <div className="mx-auto w-full max-w-6xl">
-            <h2 className="text-2xl font-semibold tracking-tight">assem3ly</h2>
+            <h2 className="text-2xl font-semibold tracking-tight">assembl3D</h2>
             <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/70">interactive assembly manuals</p>
             <div className="mt-6">
               <TiltCard>
