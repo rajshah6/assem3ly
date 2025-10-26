@@ -57,6 +57,12 @@ export function LibraryCard({ manual }: { manual: Manual }) {
                     alt={manual.name} 
                     fill 
                     className="object-contain"
+                    unoptimized
+                    onError={(e) => {
+                      console.error('Image failed to load:', manual.imageUrl);
+                      // Fallback to a placeholder
+                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200"%3E%3Crect width="200" height="200" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999"%3EIKEA%3C/text%3E%3C/svg%3E';
+                    }}
                   />
                 </div>
               </div>

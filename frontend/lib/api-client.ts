@@ -44,8 +44,36 @@ const MOCK_SCENE: AssemblyScene = {
 };
 
 export async function fetchTopManuals(): Promise<Manual[]> {
-  await new Promise((r) => setTimeout(r, 300));
-  return MOCK_MANUALS.slice(0, 50);
+  // Use embedded data for instant loading - no backend required!
+  const { TOP_50_PRODUCTS } = await import('./top-50-data');
+  return TOP_50_PRODUCTS;
+  
+  // Optional: Try to fetch from backend for fresh data (commented out for speed)
+  /*
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    
+    const response = await fetch(`${API_URL}/api/top-manuals`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (error: any) {
+    console.warn('Using embedded data (backend unavailable)');
+  }
+  
+  return TOP_50_PRODUCTS;
+  */
 }
 
 export async function searchManuals(query: string): Promise<Manual[]> {

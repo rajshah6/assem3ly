@@ -75,5 +75,37 @@ router.get('/assembly/:id', async (req, res, next) => {
   }
 })
 
+/**
+ * GET /api/top-manuals
+ * Returns the top 50 most popular IKEA products
+ * Data is loaded from backend/data/top-50-products.json
+ */
+router.get('/top-manuals', async (req: any, res: any, next: any) => {
+  try {
+    const fs = await import('fs')
+    const path = await import('path')
+    
+    const dataPath = path.join(__dirname, '..', '..', 'data', 'top-50-products.json')
+    
+    // Check if file exists
+    if (!fs.existsSync(dataPath)) {
+      return res.status(404).json({
+        error: 'Top products data not found',
+        message: 'Run "npm run scrape:top-products" to generate the data',
+      })
+    }
+    
+    // Read and parse the JSON file
+    const data = fs.readFileSync(dataPath, 'utf-8')
+    const products = JSON.parse(data)
+    
+    res.json(products)
+    
+  } catch (error: any) {
+    console.error('❌ Error loading top manuals:', error.message)
+    next(error)
+  }
+})
+
 export default router
 

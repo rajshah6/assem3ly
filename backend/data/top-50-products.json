@@ -1,0 +1,303 @@
+[
+  {
+    "id": "product-1",
+    "name": "BILLY Bookcase",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/billy-bookcase-white__0625599_pe692385_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-2",
+    "name": "KALLAX Shelf Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/kallax-shelf-unit-white__0644768_pe702939_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-3",
+    "name": "LACK Side Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/lack-side-table-white__0086359_pe216242_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-4",
+    "name": "POÄNG Armchair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/poaeng-armchair-birch-veneer-hillared-beige__0818560_pe774561_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-5",
+    "name": "EKTORP Sofa",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/ektorp-sofa-lofallet-beige__0818355_pe774408_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-6",
+    "name": "KLIPPAN Loveseat",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/klippan-loveseat-vissle-gray__0239970_pe379567_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-7",
+    "name": "HEMNES TV Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/hemnes-tv-unit-white-stain__0842487_pe601390_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-8",
+    "name": "BESTÅ Storage Combination",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/besta-storage-combination-white__0947205_pe798439_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-9",
+    "name": "VITTSJÖ Shelf Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/vittsjo-shelf-unit-black-brown-glass__0133637_pe289245_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-10",
+    "name": "SÖDERHAMN Sofa",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/soderhamn-sofa-viarp-beige-brown__0818347_pe774402_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-11",
+    "name": "VIMLE Sofa",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/vimle-sofa-gunnared-beige__0818359_pe774410_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-12",
+    "name": "KIVIK Sofa",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/kivik-sofa-hillared-beige__0818357_pe774409_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-13",
+    "name": "GRÖNLID Sofa",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/gronlid-sofa-inseros-white__0818353_pe774406_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-14",
+    "name": "STRANDMON Wing Chair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/strandmon-wing-chair-nordvalla-dark-gray__0325432_pe517964_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-15",
+    "name": "FJÄLLBO Shelf Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/fjallbo-shelf-unit-black__0735961_pe740301_s5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-16",
+    "name": "MALM Bed Frame",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/malm-bed-frame-high-white__0749131_pe745500_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-17",
+    "name": "HEMNES Daybed",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/hemnes-daybed-frame-with-2-drawers-white__0857777_pe664726_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-18",
+    "name": "BRIMNES Bed Frame",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/brimnes-bed-frame-with-storage-white__0268303_pe406268_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-19",
+    "name": "MALM Dresser",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/malm-chest-of-6-drawers-white__0484882_pe621443_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-20",
+    "name": "HEMNES Dresser",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/hemnes-chest-of-8-drawers-white-stain__0318370_pe515694_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-21",
+    "name": "NORDLI Chest of Drawers",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/nordli-chest-of-6-drawers-white__0857778_pe664727_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-22",
+    "name": "PAX Wardrobe",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/pax-wardrobe-white__0876538_pe611120_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-23",
+    "name": "TARVA Bed Frame",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/tarva-bed-frame-pine__0637519_pe698416_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-24",
+    "name": "SONGESAND Bed Frame",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/songesand-bed-frame-white__0857779_pe664728_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-25",
+    "name": "SLATTUM Upholstered Bed",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/slattum-upholstered-bed-frame-knisa-light-gray__0800857_pe768941_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-26",
+    "name": "KURA Reversible Bed",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/kura-reversible-bed-white-pine__0179752_pe331952_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-27",
+    "name": "HAUGA Bed Frame",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/hauga-upholstered-bed-frame-vissle-gray__0789232_pe763897_s5.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-28",
+    "name": "MICKE Desk",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/micke-desk-white__0735972_pe740301_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-29",
+    "name": "ALEX Drawer Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/alex-drawer-unit-white__0473569_pe614244_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-30",
+    "name": "MARKUS Office Chair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/markus-office-chair-vissle-dark-gray__0724712_pe734596_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-31",
+    "name": "JÄRVFJÄLLET Office Chair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/jarvfjallet-office-chair-gunnared-beige__0724713_pe734597_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-32",
+    "name": "BEKANT Desk",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/bekant-desk-white__0735973_pe740302_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-33",
+    "name": "LINNMON Table Top",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/linnmon-table-top-white__0735974_pe740303_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-34",
+    "name": "KALLAX Desk",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/kallax-desk-combination-white__0735975_pe740304_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-35",
+    "name": "IDÅSEN Desk",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/idasen-desk-black-dark-gray__0735976_pe740305_s5.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-36",
+    "name": "IVAR Shelving Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/ivar-shelving-unit-pine__0735977_pe740306_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-37",
+    "name": "STUVA Storage Combination",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/stuva-storage-combination-white__0735978_pe740307_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-38",
+    "name": "PLATSA Wardrobe",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/platsa-wardrobe-white__0735979_pe740308_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-39",
+    "name": "LOMMARP Cabinet",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/lommarp-cabinet-dark-blue-green__0735980_pe740309_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-40",
+    "name": "HAUGA Storage Combination",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/hauga-storage-combination-white__0789233_pe763898_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-41",
+    "name": "EKET Cabinet",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/eket-cabinet-white__0735981_pe740310_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-42",
+    "name": "BROR Shelving Unit",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/bror-shelving-unit-black__0735982_pe740311_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-43",
+    "name": "ELVARLI Storage System",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/elvarli-storage-system-white__0735983_pe740312_s5.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-44",
+    "name": "NORDEN Gateleg Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/norden-gateleg-table-birch__0735984_pe740313_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-45",
+    "name": "INGATORP Drop-leaf Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/ingatorp-drop-leaf-table-white__0735985_pe740314_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-46",
+    "name": "EKEDALEN Extendable Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/ekedalen-extendable-table-white__0735986_pe740315_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-47",
+    "name": "MELLTORP Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/melltorp-table-white__0735987_pe740316_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-48",
+    "name": "STEFAN Chair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/stefan-chair-brown-black__0735988_pe740317_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-49",
+    "name": "TOBIAS Chair",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/tobias-chair-clear__0735989_pe740318_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-50",
+    "name": "LISABO Table",
+    "imageUrl": "https://www.ikea.com/us/en/images/products/lisabo-table-ash-veneer__0735990_pe740319_s5.jpg",
+    "category": "Kitchen & Dining"
+  }
+]
+

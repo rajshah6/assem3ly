@@ -6,7 +6,14 @@
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "generate:top50": "ts-node brightdata/generate-top-50.ts",
+    "download:images": "ts-node brightdata/download-product-images.ts",
+    "copy:images": "ts-node brightdata/copy-images-to-frontend.ts",
+    "update:frontend-data": "ts-node brightdata/update-frontend-data.ts",
+    "setup:images": "npm run download:images && npm run copy:images && npm run update:frontend-data",
+    "scrape:top-products": "ts-node brightdata/scrape-top-products.ts",
+    "test:serp": "ts-node brightdata/test-top-products.ts"
   },
   "keywords": [],
   "author": "",

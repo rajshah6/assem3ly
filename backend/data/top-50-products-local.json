@@ -1,0 +1,302 @@
+[
+  {
+    "id": "product-1",
+    "name": "BILLY Bookcase",
+    "imageUrl": "/images/product-1.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-2",
+    "name": "KALLAX Shelf Unit",
+    "imageUrl": "/images/product-2.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-3",
+    "name": "LACK Side Table",
+    "imageUrl": "/images/product-3.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-4",
+    "name": "POÄNG Armchair",
+    "imageUrl": "/images/product-4.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-5",
+    "name": "EKTORP Sofa",
+    "imageUrl": "/images/product-5.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-6",
+    "name": "KLIPPAN Loveseat",
+    "imageUrl": "/images/product-6.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-7",
+    "name": "HEMNES TV Unit",
+    "imageUrl": "/images/product-7.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-8",
+    "name": "BESTÅ Storage Combination",
+    "imageUrl": "/images/product-8.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-9",
+    "name": "VITTSJÖ Shelf Unit",
+    "imageUrl": "/images/product-9.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-10",
+    "name": "SÖDERHAMN Sofa",
+    "imageUrl": "/images/product-10.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-11",
+    "name": "VIMLE Sofa",
+    "imageUrl": "/images/product-11.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-12",
+    "name": "KIVIK Sofa",
+    "imageUrl": "/images/product-12.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-13",
+    "name": "GRÖNLID Sofa",
+    "imageUrl": "/images/product-13.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-14",
+    "name": "STRANDMON Wing Chair",
+    "imageUrl": "/images/product-14.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-15",
+    "name": "FJÄLLBO Shelf Unit",
+    "imageUrl": "/images/product-15.jpg",
+    "category": "Living Room"
+  },
+  {
+    "id": "product-16",
+    "name": "MALM Bed Frame",
+    "imageUrl": "/images/product-16.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-17",
+    "name": "HEMNES Daybed",
+    "imageUrl": "/images/product-17.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-18",
+    "name": "BRIMNES Bed Frame",
+    "imageUrl": "/images/product-18.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-19",
+    "name": "MALM Dresser",
+    "imageUrl": "/images/product-19.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-20",
+    "name": "HEMNES Dresser",
+    "imageUrl": "/images/product-20.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-21",
+    "name": "NORDLI Chest of Drawers",
+    "imageUrl": "/images/product-21.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-22",
+    "name": "PAX Wardrobe",
+    "imageUrl": "/images/product-22.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-23",
+    "name": "TARVA Bed Frame",
+    "imageUrl": "/images/product-23.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-24",
+    "name": "SONGESAND Bed Frame",
+    "imageUrl": "/images/product-24.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-25",
+    "name": "SLATTUM Upholstered Bed",
+    "imageUrl": "/images/product-25.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-26",
+    "name": "KURA Reversible Bed",
+    "imageUrl": "/images/product-26.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-27",
+    "name": "HAUGA Bed Frame",
+    "imageUrl": "/images/product-27.jpg",
+    "category": "Bedroom"
+  },
+  {
+    "id": "product-28",
+    "name": "MICKE Desk",
+    "imageUrl": "/images/product-28.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-29",
+    "name": "ALEX Drawer Unit",
+    "imageUrl": "/images/product-29.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-30",
+    "name": "MARKUS Office Chair",
+    "imageUrl": "/images/product-30.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-31",
+    "name": "JÄRVFJÄLLET Office Chair",
+    "imageUrl": "/images/product-31.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-32",
+    "name": "BEKANT Desk",
+    "imageUrl": "/images/product-32.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-33",
+    "name": "LINNMON Table Top",
+    "imageUrl": "/images/product-33.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-34",
+    "name": "KALLAX Desk",
+    "imageUrl": "/images/product-34.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-35",
+    "name": "IDÅSEN Desk",
+    "imageUrl": "/images/product-35.jpg",
+    "category": "Office"
+  },
+  {
+    "id": "product-36",
+    "name": "IVAR Shelving Unit",
+    "imageUrl": "/images/product-36.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-37",
+    "name": "STUVA Storage Combination",
+    "imageUrl": "/images/product-37.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-38",
+    "name": "PLATSA Wardrobe",
+    "imageUrl": "/images/product-38.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-39",
+    "name": "LOMMARP Cabinet",
+    "imageUrl": "/images/product-39.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-40",
+    "name": "HAUGA Storage Combination",
+    "imageUrl": "/images/product-40.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-41",
+    "name": "EKET Cabinet",
+    "imageUrl": "/images/product-41.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-42",
+    "name": "BROR Shelving Unit",
+    "imageUrl": "/images/product-42.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-43",
+    "name": "ELVARLI Storage System",
+    "imageUrl": "/images/product-43.jpg",
+    "category": "Storage"
+  },
+  {
+    "id": "product-44",
+    "name": "NORDEN Gateleg Table",
+    "imageUrl": "/images/product-44.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-45",
+    "name": "INGATORP Drop-leaf Table",
+    "imageUrl": "/images/product-45.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-46",
+    "name": "EKEDALEN Extendable Table",
+    "imageUrl": "/images/product-46.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-47",
+    "name": "MELLTORP Table",
+    "imageUrl": "/images/product-47.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-48",
+    "name": "STEFAN Chair",
+    "imageUrl": "/images/product-48.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-49",
+    "name": "TOBIAS Chair",
+    "imageUrl": "/images/product-49.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-50",
+    "name": "LISABO Table",
+    "imageUrl": "/images/product-50.jpg",
+    "category": "Kitchen & Dining"
+  }
+]
