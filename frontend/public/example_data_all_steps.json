@@ -1749,6 +1749,294 @@
       "description": "Attach the 4 table legs to the corner blocks at each corner of the frame.",
       "parts": [
         {
+          "id": "foot_01",
+          "name": "Plastic Foot Back-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.45,
+            "y": -0.735,
+            "z": 0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_02",
+          "name": "Plastic Foot Back-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.45,
+            "y": -0.735,
+            "z": 0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_03",
+          "name": "Plastic Foot Front-Right",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": 0.45,
+            "y": -0.735,
+            "z": -0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "foot_04",
+          "name": "Plastic Foot Front-Left",
+          "type": "plastic foot",
+          "quantity": 1,
+          "dimensions": {
+            "diameter": 0.03,
+            "height": 0.015
+          },
+          "material": "plastic",
+          "color": "#333333",
+          "position": {
+            "x": -0.45,
+            "y": -0.735,
+            "z": -0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.025,
+              0.025,
+              0.015,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_01",
+          "name": "Table Leg Back-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.45,
+            "y": -0.38,
+            "z": 0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_02",
+          "name": "Table Leg Back-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.45,
+            "y": -0.38,
+            "z": 0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_03",
+          "name": "Table Leg Front-Right",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": 0.45,
+            "y": -0.38,
+            "z": -0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              32
+            ]
+          }
+        },
+        {
+          "id": "table_leg_04",
+          "name": "Table Leg Front-Left",
+          "type": "leg",
+          "quantity": 1,
+          "dimensions": {
+            "height": 0.7,
+            "diameter": 0.04
+          },
+          "material": "metal",
+          "color": "#FFFFFF",
+          "position": {
+            "x": -0.45,
+            "y": -0.38,
+            "z": -0.45
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "geometry": {
+            "type": "cylinder",
+            "args": [
+              0.02,
+              0.02,
+              0.7,
+              32
+            ]
+          }
+        },
+        {
           "id": "edge_support_bar_01",
           "name": "Edge Support Bar",
           "type": "bar",
