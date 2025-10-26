@@ -8,12 +8,6 @@ import { Manual } from './api-client';
 
 export const TOP_50_PRODUCTS: Manual[] = [
   {
-    "id": "product-0",
-    "name": "TOMMARYD Table",
-    "imageUrl": "/products/product-0.jpg",
-    "category": "Kitchen & Dining"
-  },
-  {
     "id": "product-1",
     "name": "BILLY Bookcase",
     "imageUrl": "/products/product-1.jpg",
@@ -307,4 +301,10 @@ export const TOP_50_PRODUCTS: Manual[] = [
     "imageUrl": "/products/product-49.jpg",
     "category": "Kitchen & Dining"
   },
+  {
+    "id": "product-50",
+    "name": "TOMMARYD Table",
+    "imageUrl": "/products/product-50.jpg",
+    "category": "Kitchen & Dining"
+  }
 ];

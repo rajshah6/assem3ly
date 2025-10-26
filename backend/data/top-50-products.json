@@ -1,11 +1,5 @@
 [
   {
-    "id": "product-0",
-    "name": "TOMMARYD Table",
-    "imageUrl": "/images/product-0.jpg",
-    "category": "Kitchen & Dining"
-  },
-  {
     "id": "product-1",
     "name": "BILLY Bookcase",
     "imageUrl": "https://www.ikea.com/us/en/images/products/billy-bookcase-white__0625599_pe692385_s5.jpg",
@@ -297,6 +291,12 @@
     "id": "product-49",
     "name": "TOBIAS Chair",
     "imageUrl": "https://www.ikea.com/us/en/images/products/tobias-chair-clear__0735989_pe740318_s5.jpg",
+    "category": "Kitchen & Dining"
+  },
+  {
+    "id": "product-50",
+    "name": "TOMMARYD Table",
+    "imageUrl": "/images/product-50.jpg",
     "category": "Kitchen & Dining"
   }
 ]
