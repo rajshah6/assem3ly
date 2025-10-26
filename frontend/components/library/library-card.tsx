@@ -29,18 +29,41 @@ export function LibraryCard({ manual }: { manual: Manual }) {
   const [showLoader, setShowLoader] = React.useState(false);
   const router = useRouter();
 
-  // Handle click - only TOMMARYD Table is available
-  const handleClick = (e: React.MouseEvent) => {
+  // Handle click - TOMMARYD uses static data, others trigger scraping
+  const handleClick = async (e: React.MouseEvent) => {
     if (manual.id === "product-0") {
-      // Show loader for 5 seconds before navigating
+      // TOMMARYD - use existing flow with static data
       setShowLoader(true);
       setTimeout(() => {
         setShowLoader(false);
         router.push("/assembly-preview");
       }, 5000);
     } else {
+      // All other products - trigger backend scraping
       e.preventDefault();
-      alert("You've reached your Gemini API usage limit!");
+      
+      // Check if manual has a URL (for custom URL searches)
+      const manualUrl = (manual as any).productUrl;
+      
+      if (manualUrl) {
+        setShowLoader(true);
+        try {
+          // Import the scraping function
+          const { scrapeFromUrl } = await import('@lib/api-client');
+          await scrapeFromUrl(manualUrl);
+          
+          // After successful scrape, navigate to preview
+          setTimeout(() => {
+            setShowLoader(false);
+            router.push("/assembly-preview");
+          }, 1000);
+        } catch (error: any) {
+          setShowLoader(false);
+          alert(`Scraping failed: ${error.message}`);
+        }
+      } else {
+        alert("You've reached your Gemini API usage limit!");
+      }
     }
   };
 

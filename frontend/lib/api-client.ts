@@ -87,4 +87,35 @@ export async function getAssemblyScene(manualId: string): Promise<AssemblyScene>
   return { ...MOCK_SCENE, id: manualId };
 }
 
+export async function scrapeFromUrl(url: string): Promise<any> {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+
+  try {
+    const response = await fetch(`${API_URL}/api/scrape-url`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || 'Scraping failed');
+    }
+
+    return await response.json();
+  } catch (error: any) {
+    clearTimeout(timeoutId);
+    if (error.name === 'AbortError') {
+      throw new Error('Request timed out. Please try again.');
+    }
+    throw error;
+  }
+}
+
 

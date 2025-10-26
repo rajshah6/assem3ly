@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Input, Button, Card, Badge, Spinner } from "@components/ui/primitives";
+import { useEffect, useState } from "react";
+import { Input, Button, Card, Spinner } from "@components/ui/primitives";
 import { Manual, searchManuals } from "@lib/api-client";
 import { SearchResults } from "./SearchResults";
 
@@ -20,6 +20,11 @@ export function SearchSection({
   const [results, setResults] = useState<Manual[]>([]);
   const currentQuery = externalQuery ?? query;
 
+  // Check if query is an IKEA URL
+  const isIkeaUrl = (str: string) => {
+    return str.includes('ikea.com') && str.includes('/p/');
+  };
+
   useEffect(() => {
     const handle = setTimeout(async () => {
       if (!currentQuery.trim()) {
@@ -28,6 +33,20 @@ export function SearchSection({
         setLoading(false);
         return;
       }
+
+      // If it's a URL, show it as a special result
+      if (isIkeaUrl(currentQuery)) {
+        setResults([{
+          id: 'url-input',
+          name: 'IKEA Product Via URL',
+          imageUrl: '/products/product-0.jpg', // Placeholder
+          category: 'Custom',
+          productUrl: currentQuery, // Store the URL
+        } as any]);
+        return;
+      }
+
+      // Otherwise, search normally
       try {
         setLoading(true);
         setError(null);
@@ -49,7 +68,7 @@ export function SearchSection({
           <div className="flex-1">
             <label className="mb-2 block text-sm font-medium">Search IKEA manuals</label>
             <Input
-              placeholder="e.g. BILLY Bookcase"
+              placeholder="e.g. BILLY Bookcase or https://www.ikea.com/us/en/p/..."
               value={externalQuery ?? query}
               onChange={(e) => (onExternalQueryChange ? onExternalQueryChange(e.target.value) : setQuery(e.target.value))}
             />
@@ -70,7 +89,7 @@ export function SearchSection({
           </div>
         ) : error ? (
           <div className="text-sm text-red-600">{error}</div>
-        ) : query && results.length === 0 ? (
+        ) : currentQuery && results.length === 0 ? (
           <div className="text-sm text-black/60 dark:text-white/60">No manuals found.</div>
         ) : (
           <SearchResults results={results} />

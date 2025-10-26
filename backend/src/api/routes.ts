@@ -76,6 +76,47 @@ router.get('/assembly/:id', async (req, res, next) => {
 })
 
 /**
+ * POST /api/scrape-url
+ * Scrape IKEA product directly from URL
+ * 
+ * Body: { url: "https://www.ikea.com/us/en/p/billy-bookcase-white-00263850/" }
+ * Returns: ScrapedProduct with PDF path
+ */
+router.post('/scrape-url', async (req, res, next) => {
+  try {
+    const { url } = req.body
+
+    if (!url || !url.includes('ikea.com')) {
+      return res.status(400).json({ 
+        error: 'Valid IKEA URL is required',
+        example: { url: 'https://www.ikea.com/us/en/p/billy-bookcase-white-00263850/' }
+      })
+    }
+
+    console.log('\n' + '='.repeat(60))
+    console.log('📥 API Request: /api/scrape-url')
+    console.log('🔗 URL:', url)
+    console.log('='.repeat(60))
+
+    // Person 1: Bright Data scraping (already supports URLs!)
+    const scrapedData = await scrapeProduct(url)
+    
+    console.log('✅ API Response: Success')
+    console.log('📄 PDF saved to:', scrapedData.pdfPath)
+    console.log('='.repeat(60) + '\n')
+
+    res.json({
+      success: true,
+      product: scrapedData,
+    })
+
+  } catch (error: any) {
+    console.error('❌ API Error:', error.message)
+    next(error)
+  }
+})
+
+/**
  * GET /api/top-manuals
  * Returns the top 50 most popular IKEA products
  * Data is loaded from backend/data/top-50-products.json
